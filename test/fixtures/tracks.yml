@@ -1,0 +1,16 @@
+# Read about fixtures at
+# http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  artist: MyString
+  length: 1
+  soundcloud_id: 1
+  stream_url: MyString
+
+two:
+  name: MyString
+  artist: MyString
+  length: 1
+  soundcloud_id: 1
+  stream_url: MyString

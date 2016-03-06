@@ -6,6 +6,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
+gem 'soundcloud'
 gem 'sdoc', '~> 0.4.0', group: :doc
 group :development, :test do
   gem 'byebug'
@@ -17,9 +18,10 @@ group :development do
 end
 gem 'thin'
 gem 'slim-rails'
+gem 'haml-rails'
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
-gem 'simple_form'
+gem 'simple_form'""
 gem 'high_voltage'
 gem 'devise'
 gem 'pundit'

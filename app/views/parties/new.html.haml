@@ -1,0 +1,8 @@
+%h2 Please type in details of your new event
+
+= simple_form_for @party do |f|
+  = f.input :name
+  = f.input :password
+  = f.input :location
+  = f.submit 'Save' , class: 'btn btn-primary'
+ 

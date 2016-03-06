@@ -1,0 +1,16 @@
+# Read about fixtures at
+# http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+halloween:
+  name: Halloween 
+  password: '12345'
+  location: worcester
+  occurence: 2016-03-06 15:51:52
+  user: admin
+
+outdoor:
+  name: outdoor braai
+  password: '65423'
+  location: capetown
+  occurence: 2016-03-06 15:51
+  user: admin

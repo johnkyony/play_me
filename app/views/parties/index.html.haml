@@ -1,0 +1,28 @@
+
+.span7
+  .widget.stacked.widget-table.action-table
+    .widget-header
+      %i.icon-th-list
+      %h3 Party
+    / /widget-header
+    .widget-content
+      %table.table.table-striped.table-bordered
+        %thead
+          %tr
+            %th Name
+            %th Location
+            %th Password
+            %th.td-actions Actions
+        %tbody
+          %tr
+            - @parties.each do |p|
+              %td= p.name
+              %td= p.location
+              %td= p.password
+               
+              %td.td-actions
+                %a.btn.btn-small.btn-primary#playlist{:href => "javascript:;"}
+                  %i.glyphicon.glyphicon-film
+                %a.btn.btn-small.btn-primary{:href => "javascript:;"}
+                  %i.glyphicon.glyphicon-plus
+            

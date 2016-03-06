@@ -1,0 +1,2 @@
+class PartyVideosController < ApplicationController
+end

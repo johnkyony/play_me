@@ -11,7 +11,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160219162409) do
+ActiveRecord::Schema.define(version: 20160306145313) do
+
+  create_table "guests", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "party_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "guests", ["party_id"], name: "index_guests_on_party_id"
+  add_index "guests", ["user_id"], name: "index_guests_on_user_id"
+
+  create_table "parties", force: :cascade do |t|
+    t.string   "name"
+    t.string   "password"
+    t.string   "location"
+    t.datetime "occurence"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "parties", ["user_id"], name: "index_parties_on_user_id"
+
+  create_table "tracks", force: :cascade do |t|
+    t.string   "name"
+    t.string   "artist"
+    t.integer  "length"
+    t.integer  "soundcloud_id"
+    t.string   "stream_url"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
@@ -32,5 +64,18 @@ ActiveRecord::Schema.define(version: 20160219162409) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "videos", force: :cascade do |t|
+    t.integer  "party_id"
+    t.string   "link"
+    t.string   "uid"
+    t.string   "title"
+    t.integer  "voteup"
+    t.integer  "votedown"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "videos", ["party_id"], name: "index_videos_on_party_id"
 
 end

@@ -1,0 +1,16 @@
+%form{:action => "?", :method => "get"}
+  %input{:autofocus => "", :name => "search", :placeholder => "Search songs here", :type => "text"}/
+
+- @tracks.each do |track|
+  %p= track.title
+  = image_tag("#{track.artwork_url}")
+  %p= track.stream_url
+ 
+
+ 
+  
+
+  
+ 
+
+  
