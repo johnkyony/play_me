@@ -30,7 +30,6 @@ group :development do
   gem 'guard-minitest'
   gem 'guard-livereload'
   gem 'rack-livereload'
-  gem 'libnotify'
   gem 'better_errors'
   gem 'binding_of_caller', platforms: :mri_21
   gem 'quiet_assets'
@@ -39,7 +38,14 @@ group :development do
   gem 'rails_layout'
   gem 'rails_best_practices'
   gem 'rails_apps_pages'
+  group :linux do
+    gem 'libnotify', require: false
+  end
+  group :darwin do
+    gem 'growl', require: false
+  end
 end
+
 gem 'minitest-rails'
 group :test do
   gem 'minitest-reporters'
