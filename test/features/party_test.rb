@@ -33,11 +33,32 @@ feature "Party" do
     click_link "Parties"
     visit parties_path
 
-    page.must_have_content 'Name '
+    page.must_have_content "Name"
     page.must_have_content  "Location"
     page.must_have_content "Password"
   end
 
+  scenario "Current user should be able to add guest to party " do      
+    visit parties_path
+    
+    click_link 'Add Guest'
+    
+    
+    visit new_party_guest_path(@halloween.id)
+    select(users(:user).name, :from=> 'User')
+    select(@halloween.name , :from=> 'Party')
+    click_button("Add friend", :match => :first)  
+    
+     
+       
+  end
+  scenario "Current user should be able to see all the guests invited to the party" do 
+    visit parties_path
+    click_link 'View Guests'
+    visit party_guests_path(@halloween)
+    page.must_have_content @halloween.user.name
+  end
+  
 end
 
 

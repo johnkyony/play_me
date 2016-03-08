@@ -45,105 +45,107 @@ section {
   margin-top: 20px;
   }
 
-  // The table css
+// parties 
 
-  .table-bordered {
-border: 1px solid #dddddd;
-border-collapse: separate;
-border-left: 0;
--webkit-border-radius: 4px;
--moz-border-radius: 4px;
-border-radius: 4px;
+.block-update-card {
+  height: 100%;
+  border: 1px #FFFFFF solid;
+  width: 380px;
+  float: left;
+  margin-left: 10px;
+  margin-top: 0;
+  padding: 0;
+  box-shadow: 1px 1px 8px #d8d8d8;
+  background-color: #FFFFFF;
+}
+.block-update-card .h-status {
+  width: 100%;
+  height: 7px;
+  background: repeating-linear-gradient(45deg, #606dbc, #606dbc 10px, #465298 10px, #465298 20px);
+}
+.block-update-card .v-status {
+  width: 5px;
+  height: 80px;
+  float: left;
+  margin-right: 5px;
+  background: repeating-linear-gradient(45deg, #606dbc, #606dbc 10px, #465298 10px, #465298 20px);
+}
+.block-update-card .update-card-MDimentions {
+  width: 80px;
+  height: 80px;
+}
+.block-update-card .update-card-body {
+  margin-top: 10px;
+  margin-left: 5px;
+}
+.block-update-card .update-card-body h4 {
+  color: #737373;
+  font-weight: bold;
+  font-size: 13px;
+}
+.block-update-card .update-card-body p {
+  color: #737373;
+  font-size: 12px;
+}
+.block-update-card .card-action-pellet {
+  padding: 5px;
+}
+.block-update-card .card-action-pellet div {
+  margin-right: 10px;
+  font-size: 15px;
+  cursor: pointer;
+  color: #dddddd;
+}
+.block-update-card .card-action-pellet div:hover {
+  color: #999999;
+}
+.block-update-card .card-bottom-status {
+  color: #a9a9aa;
+  font-weight: bold;
+  font-size: 14px;
+  border-top: #e0e0e0 1px solid;
+  padding-top: 5px;
+  margin: 0px;
+}
+.block-update-card .card-bottom-status:hover {
+  background-color: #dd4b39;
+  color: #FFFFFF;
+  cursor: pointer;
 }
 
-.table {
-width: 100%;
-margin-bottom: 20px;
-background-color: transparent;
-border-collapse: collapse;
-border-spacing: 0;
-display: table;
+/*
+Creating a block for social media buttons
+*/
+.card-body-social {
+  font-size: 30px;
+  margin-top: 10px;
+}
+.card-body-social .git {
+  color: black;
+  cursor: pointer;
+  margin-left: 10px;
+}
+.card-body-social .twitter {
+  color: #19C4FF;
+  cursor: pointer;
+  margin-left: 10px;
+}
+.card-body-social .google-plus {
+  color: #DD4B39;
+  cursor: pointer;
+  margin-left: 10px;
+}
+.card-body-social .facebook {
+  color: #49649F;
+  cursor: pointer;
+  margin-left: 10px;
+}
+.card-body-social .linkedin {
+  color: #007BB6;
+  cursor: pointer;
+  margin-left: 10px;
 }
 
-.widget.widget-table .table {
-margin-bottom: 0;
-border: none;
-}
-
-.widget.widget-table .widget-content {
-padding: 0;
-}
-
-.widget .widget-header + .widget-content {
-border-top: none;
--webkit-border-top-left-radius: 0;
--webkit-border-top-right-radius: 0;
--moz-border-radius-topleft: 0;
--moz-border-radius-topright: 0;
-border-top-left-radius: 0;
-border-top-right-radius: 0;
-}
-
-.widget .widget-content {
-padding: 20px 15px 15px;
-background: #FFF;
-border: 1px solid #D5D5D5;
--moz-border-radius: 5px;
--webkit-border-radius: 5px;
-border-radius: 5px;
-}
-
-.widget .widget-header {
-position: relative;
-height: 40px;
-line-height: 40px;
-background: #E9E9E9;
-background: -moz-linear-gradient(top, #fafafa 0%, #e9e9e9 100%);
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fafafa), color-stop(100%, #e9e9e9));
-background: -webkit-linear-gradient(top, #fafafa 0%, #e9e9e9 100%);
-background: -o-linear-gradient(top, #fafafa 0%, #e9e9e9 100%);
-background: -ms-linear-gradient(top, #fafafa 0%, #e9e9e9 100%);
-background: linear-gradient(top, #fafafa 0%, #e9e9e9 100%);
-text-shadow: 0 1px 0 #fff;
-border-radius: 5px 5px 0 0;
-box-shadow: 0 2px 5px rgba(0,0,0,0.1),inset 0 1px 0 white,inset 0 -1px 0 rgba(255,255,255,0.7);
-border-bottom: 1px solid #bababa;
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FAFAFA', endColorstr='#E9E9E9');
--ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#FAFAFA', endColorstr='#E9E9E9')";
-border: 1px solid #D5D5D5;
--webkit-border-top-left-radius: 4px;
--webkit-border-top-right-radius: 4px;
--moz-border-radius-topleft: 4px;
--moz-border-radius-topright: 4px;
-border-top-left-radius: 4px;
-border-top-right-radius: 4px;
--webkit-background-clip: padding-box;
-}
-
-thead {
-display: table-header-group;
-vertical-align: middle;
-border-color: inherit;
-}
-
-.widget .widget-header h3 {
-top: 2px;
-position: relative;
-left: 10px;
-display: inline-block;
-margin-right: 3em;
-font-size: 14px;
-font-weight: 600;
-color: #555;
-line-height: 18px;
-text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
-}
-
-.widget .widget-header [class^="icon-"], .widget .widget-header [class*=" icon-"] {
-display: inline-block;
-margin-left: 13px;
-margin-right: -2px;
-font-size: 16px;
-color: #555;
-vertical-align: middle;
+.music-card {
+  background-color: green;
 }

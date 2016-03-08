@@ -2,10 +2,15 @@ class PartiesController < ApplicationController
  before_action :authenticate_user!
 
  def index
-   @parties = Party.all
+   @parties = Party.where(:user_id => current_user.id)
+
+   @invitation = Guest.where(:user_id => current_user.id)
  end
  def new
    @party = Party.new
+ end
+ def show
+   @party = Party.where(:id => params[:id])
  end
  def create
   @Party = Party.create(party_params)
@@ -16,7 +21,7 @@ class PartiesController < ApplicationController
 
  private
  def party_params
-   params.require(:party).permit(:name , :password , :location , :user_id  )
+   params.require(:party).permit(:name , :password , :location , :user_id , :id )
    
  end
 end

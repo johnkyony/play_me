@@ -1,28 +1,43 @@
+%div
+  %ul.nav.nav-tabs
+    %li.active{:role => "presentation"}
+      %a{"aria-controls" => "own_parties" , "data-toggle" => "tab" , :href => "#own_parties" , :role => "tab"} Own Parties
+    %li{:role => "presentation"}
+      %a{"aria-controls" => "invatations" , "data-toggle" => "tab" , :href => "#Invitation" , :role => "tab"} Invitation
+  .tab-content
+    #own_parties.tab-pane.fade.in.active{:role => "tabpanel"}
+      .span7
+        .widget.stacked.widget-table.action-table
+          .widget-header
+            %i.icon-th-list
+            %h3 Party
+          / /widget-header
+          .widget-content
+            %table.table.table-striped.table-bordered
+              %thead
+                %tr
+                  %th Name
+                  %th Location
+                  %th Password
+                  %th.td-actions Actions
+              %tbody
+                - @parties.each do |party|
+                  %tr
+                 
+                
+                    %td= party.name
+                    %td= party.location
+                    %td= party.password
+                   
+                  %td.td-actions
+                    / = link_to "Add videos" , "#"
+                    = link_to "Add Guest" , new_party_guest_path(party)
+                    = link_to "View Guests" , party_guests_path(party)
 
-.span7
-  .widget.stacked.widget-table.action-table
-    .widget-header
-      %i.icon-th-list
-      %h3 Party
-    / /widget-header
-    .widget-content
-      %table.table.table-striped.table-bordered
-        %thead
-          %tr
-            %th Name
-            %th Location
-            %th Password
-            %th.td-actions Actions
-        %tbody
-          %tr
-            - @parties.each do |p|
-              %td= p.name
-              %td= p.location
-              %td= p.password
-               
-              %td.td-actions
-                %a.btn.btn-small.btn-primary#playlist{:href => "javascript:;"}
-                  %i.glyphicon.glyphicon-film
-                %a.btn.btn-small.btn-primary{:href => "javascript:;"}
-                  %i.glyphicon.glyphicon-plus
-            
+      
+   
+    #Invitation.tab-pane.fade{:role => "tabpanel"}           
+      - @invitation.each do |invitation|      
+        = link_to  invitation.party.name, party_path(invitation.party.id)
+
+        

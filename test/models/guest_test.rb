@@ -1,9 +1,9 @@
-require "test_helper"
+# require "test_helper"
 
-describe Guest do
-  let(:guest) { Guest.new }
+# describe Guest do
+#   let(:guest) { Guest.new }
 
-  it "must be valid" do
-    value(guest).must_be :valid?
-  end
-end
+#   it "must be valid" do
+#     value(guest).must_be :valid?
+#   end
+# end

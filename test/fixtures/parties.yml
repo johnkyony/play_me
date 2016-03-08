@@ -6,7 +6,7 @@ halloween:
   password: '12345'
   location: worcester
   occurence: 2016-03-06 15:51:52
-  user: admin
+  user: john
 
 outdoor:
   name: outdoor braai

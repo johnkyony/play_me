@@ -3,6 +3,15 @@ Rails.application.routes.draw do
 
   resources :tracks
 
+  resources :parties do
+    resources :guests    
+    
+  end
+
+  resources :parties do 
+    resources :guests 
+  end
+
   resources :parties
   resources :videos
   resources :guests

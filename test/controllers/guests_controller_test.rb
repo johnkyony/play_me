@@ -1,7 +1,24 @@
-# require "test_helper"
+# class GuestsControllerTest < ActionController::TestCase
+#   include Devise::TestHelpers
 
-# describe GuestsController do
-#   it "must be a real test" do
-#     flunk "Need real tests"
+#   test "logged in should get the index page" do
+#     sign_in users(:user)
+#     get :index
+#     assert_response :success
 #   end
+
+#   test "not authenticated should get redirect" do
+#     get :index
+#     assert_response :redirect
+#   end
+
+#   test "Create a new party" do
+#     sign_in users(:user)    
+#     get :new 
+    
+   
+#   end
+
 # end
+
+#   
