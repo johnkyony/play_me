@@ -4,14 +4,12 @@ Rails.application.routes.draw do
   resources :tracks
 
   resources :parties do
-    resources :guests    
-    
+    resources :guests   
   end
 
-  resources :parties do 
-    resources :guests 
-  end
 
+
+  resources :guest_invatations
   resources :parties
   resources :videos
   resources :guests
@@ -20,3 +18,4 @@ Rails.application.routes.draw do
   resources :users
   root to: 'visitors#index'
 end
+

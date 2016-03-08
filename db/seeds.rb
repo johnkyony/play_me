@@ -10,3 +10,8 @@ admin.save
 
 john = User.new({name: 'john' , role: 0 , email: 'jkyony@gmail.com' , password: 'johnte12'})
 john.save
+
+halloween = Party.new({name: 'Halloween' , password: '12345' , location: 'worcester' })
+halloween.save
+
+

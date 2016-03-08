@@ -24,4 +24,17 @@ feature "Guest" do
     page.must_have_content @guest.party.location
     page.must_have_content @guest.party.password
   end
+
+  scenario "If invited to party the should should be able to invite his friend" do
+    visit root_path
+    page.assert_text("Parties")
+    visit parties_path
+    click_link('Invitation')
+    visit('#Invitation')
+    click_link("Add your friends")
+    visit new_guest_invatation_path
+    select(users(:admin).name, :from=> 'User')
+
+
+  end 
 end

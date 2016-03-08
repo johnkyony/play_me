@@ -1,0 +1,2 @@
+class GuestInvatationsController < ApplicationController
+end
