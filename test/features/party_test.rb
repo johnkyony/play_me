@@ -10,6 +10,7 @@ feature "Party" do
     fill_in('Password confirmation' , :with => "johnte12")
     click_button('Sign up')
     @halloween = parties(:halloween)
+    @user = users(:user)
   end
   
   scenario "Current user must be able to create Party" do
@@ -27,34 +28,29 @@ feature "Party" do
     assert_content @halloween.occurence 
   end
 
-  scenario "Current user must be able to see a part hey has created" do
+  scenario "Current user must be able to see a party he has created" do
     click_link "Parties"    
-    page.must_have_content "Name"
-    page.must_have_content  "Location"
-    page.must_have_content ""
-    
+    click_link @halloween.name
+    assert_content @halloween.name
+    assert_content @halloween.location
+    assert_content @halloween.occurence    
   end
 
   scenario "Current user should be able to add guest to party " do      
-    visit parties_path
-    
-    click_link 'Add Guest'
-    
-    # visit new_party_guest_path(@halloween.id)
-    select(users(:user).name, :from=> 'User')
-    select(@halloween.name , :from=> 'Party')
+    visit parties_path    
+    click_link 'Add Guest' , :match => :first  
+    select(@user.name, :from=> 'User')    
     click_button("Add friend", :match => :first)  
+    assert_content "Your friend #{@user.name} has been added to the party"
     visit parties_path
     click_link 'View Guests' , :match => :first
-    page.must_have_content @halloween.user.name
-     
+    assert_content @user.name     
        
   end
   scenario "Current user should be able to see all the guests invited to the party" do 
     visit parties_path
-    click_link 'View Guests' ,:match => :first
-    # visit party_guests_path(@halloween)
-    page.must_have_content guests.user.name
+    click_link 'View Guests' ,:match => :first   
+    assert_content guests.user.name
   end
 
 
