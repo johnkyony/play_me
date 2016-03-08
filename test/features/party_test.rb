@@ -16,17 +16,32 @@ feature 'Party' do
     assert_content 'Please type in details of your new event'
 
 
+<<<<<<< HEAD
     fill_in 'Name' , :with => 'New Eve Party' 
     fill_in 'Password' , :with => 'Sesame' 
 
     # select @halloween.occurence, :from=> 'Occurence' 
     # fill_in 'Occurence' , :with => @halloween.occurence  
     click_button 'Save'   
+=======
+    fill_in 'Name' , :with => 'New Year Eve Party' 
+    fill_in 'Location' , :with => 'Far, Far, Far Away' 
+    select "2016", :from=> 'party_occurence_1i'
+    select "December", :from=> 'party_occurence_2i'
+    select "31", :from=> 'party_occurence_3i'
+    select "20", :from=> 'party_occurence_4i'
+    select "00", :from=> 'party_occurence_5i'
+    click_button 'Save'
+>>>>>>> occurence_branch
 
     assert_content 'A new Event has been successfully created.'
-    assert_content 'New Eve Party'
+    assert_content 'New Year Eve Party'
     assert_content 'Far, Far, Far Away'
+<<<<<<< HEAD
     assert_content '31/12/2016'
+=======
+    assert_content '2016-12-31 20:00'
+>>>>>>> occurence_branch
   end
 
   scenario 'Current user must be able to see all the parties he has created' do
@@ -59,8 +74,6 @@ feature 'Party' do
     page.must_have_content @halloween.user.name
   end
 
-
-  
 end
 
 

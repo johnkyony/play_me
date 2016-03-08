@@ -29,6 +29,6 @@ class PartiesController < ApplicationController
  private
 
  def party_params
-   params.require(:party).permit(:name , :password , :location , :user_id , :id )
+   params.require(:party).permit(:name , :password , :location , :user_id , :id, :occurence )
  end
 end

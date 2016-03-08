@@ -12,8 +12,14 @@ class PartiesControllerTest < ActionController::TestCase
     assert_response :redirect
   end
 
+<<<<<<< HEAD
  
+=======
+  test "Create a new party" do
+    sign_in users(:user)    
+    get :new 
+  end
+>>>>>>> occurence_branch
 
 end
 
-  
