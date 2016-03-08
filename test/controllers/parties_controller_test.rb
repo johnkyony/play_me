@@ -15,10 +15,7 @@ class PartiesControllerTest < ActionController::TestCase
   test "Create a new party" do
     sign_in users(:user)    
     get :new 
-    
-   
   end
 
 end
 
-  
