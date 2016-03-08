@@ -12,16 +12,15 @@ feature "Party" do
     @halloween = parties(:halloween)
   end
   
-  scenario "Current user must be able to create Party" do    
-
-    page.assert_text("New Event")
+  scenario "Current user must be able to create Party" do
+   
     click_link 'New Event'
-    # visit new_party_path
+    
     page.must_have_content "Please type in details of your new event"
     fill_in('Name' , :with => @halloween.name )
     fill_in('Password' , :with => @halloween.password)
     fill_in('Location' , :with => @halloween.location)
-    # select(@halloween.occurence, :from=> 'Occurence')
+    select(@halloween.occurence, :from=> 'Occurence')
     # fill_in('Occurence' , :with => @halloween.occurence) 
     click_button('Save')  
     # visit parties_path
@@ -61,7 +60,7 @@ feature "Party" do
     page.must_have_content guests.user.name
   end
 
-  
+
   
 end
 
