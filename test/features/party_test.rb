@@ -18,7 +18,7 @@ feature 'Party' do
 
     fill_in 'Name' , :with => 'New Eve Party' 
     fill_in 'Password' , :with => 'Sesame' 
-    fill_in 'Location' , :with => 'Far, Far, Far Away' 
+
     # select @halloween.occurence, :from=> 'Occurence' 
     # fill_in 'Occurence' , :with => @halloween.occurence  
     click_button 'Save'   
@@ -26,6 +26,7 @@ feature 'Party' do
     assert_content 'A new Event has been successfully created.'
     assert_content 'New Eve Party'
     assert_content 'Far, Far, Far Away'
+    assert_content '31/12/2016'
   end
 
   scenario 'Current user must be able to see all the parties he has created' do

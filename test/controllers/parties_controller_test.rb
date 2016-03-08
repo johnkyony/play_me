@@ -12,12 +12,7 @@ class PartiesControllerTest < ActionController::TestCase
     assert_response :redirect
   end
 
-  test "Create a new party" do
-    sign_in users(:user)    
-    get :new 
-    
-   
-  end
+ 
 
 end
 
