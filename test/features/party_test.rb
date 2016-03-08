@@ -13,29 +13,26 @@ feature "Party" do
   end
   
   scenario "Current user must be able to create Party" do
-   
-    click_link 'New Event'
-    
+    visit parties_path
+    click_link 'New party'    
     page.must_have_content "Please type in details of your new event"
-    fill_in('Name' , :with => @halloween.name )
-    fill_in('Password' , :with => @halloween.password)
+    fill_in('Name' , :with => @halloween.name )    
     fill_in('Location' , :with => @halloween.location)
-    select(@halloween.occurence, :from=> 'Occurence')
-    # fill_in('Occurence' , :with => @halloween.occurence) 
-    click_button('Save')  
-    # visit parties_path
-  
+    select(@halloween.occurence, :from=> 'Occurence')    
+    click_button('Save')
+    visit parties_path
+    assert_content "The party #{@halloween.name} has been saved"
+    assert_content @halloween.name
+    assert_content @halloween.location
+    assert_content @halloween.occurence 
   end
 
-  scenario "Current user must be able to see all the parties he has created" do
-    
-    # page.assert_text("Parties")
-    click_link "Parties"
-    # visit parties_path
-
+  scenario "Current user must be able to see a part hey has created" do
+    click_link "Parties"    
     page.must_have_content "Name"
     page.must_have_content  "Location"
-    page.must_have_content "Password"
+    page.must_have_content ""
+    
   end
 
   scenario "Current user should be able to add guest to party " do      
