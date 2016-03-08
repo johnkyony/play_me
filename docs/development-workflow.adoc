@@ -1,0 +1,148 @@
+= Development workflow with Git: Fork, Branching, Commits, and Pull Requests
+Christian Kyony <ckyony@changamuka.com>
+
+:repo-name: johnkyony/play_me
+:project-name: play_me
+
+
+
+This document describes the development workflow to be used by John Kyony
+(owner) and Christian Kyony (contributor) for *{project-name}* web application. 
+
+The repository is hosted at http://github.com/{repo-name}.
+The master branch is deployed to http://jukejoint.herokuapp.com. 
+All new features and bug fixes are developped on local machines after forking the repo on Github and cloning them
+on local machines. Tests must passed on the feature/fix branches after fetching the
+latest changes from upstream. Pull requests are sent to the owner for approval and merging
+to the master branch 
+
+This workflow has been inspired by 
+https://github.com/sevntu-checkstyle/sevntu.checkstyle/wiki/Development-workflow-with-Git%3A-Fork%2C-Branching%2C-Commits%2C-and-Pull-Request[CheckStyle
+project]
+
+== Fork
+
+Fork the repo http://github.com/{repo-name}.
+
+== Clone
+
+Clone the {project-name} project to your local machine (USERNAME – your
+Github user account name.):
+
+[subs = "attributes"]
+----
+$ git clone git@github.com:USERNAME/{project-name}.git
+----
+
+== Remote
+
+Configure the upstream remote
+
+[subs = "attributes"]
+----
+$ cd {project-name} 
+$ git remote add upstream git://github.com/{repo-name}.git
+----
+
+== Branch
+
+Create a branch for the development of a new feature
+
+----
+$ git checkout -b my-new-feature
+----
+
+== Develop
+
+Develop on my-new-feature branch only.
+
+NOTE: Do not merge my-new-check branch to
+the your local master as it should stay equal to upstream master!!
+
+
+== Commit
+
+Commit changes to my-new-feature branch:
+
+----
+$ git add .
+$ git commit -m "The best invention after sliced bread"
+----
+
+== Push
+
+Push branch to GitHub, to allow the project owner to review the code:
+
+----
+$ git push origin my-new-feature
+----
+
+== Repeat
+
+Repeat steps Development -> Commit -> Push  till development is complete.
+
+
+== Fetch
+
+Fetch upstream changes that were done by other contributors:
+
+----
+$ git fetch upstream
+----
+
+== Update
+
+Update local master:
+
+----
+$ git checkout master
+$ git pull upstream master
+----
+
+== Rebase
+
+Rebase my-new-feature branch on top of the upstream master:
+
+----
+$ git checkout my-new-feature
+$ git rebase master
+----
+
+== Resolve
+
+In the process of the rebase, it may discover conflicts. In that case it
+will stop and allow you to fix the conflicts. After fixing conflicts, use git
+add . to update the index with those contents, and then just run:
+
+----
+$ git rebase --continue
+----
+
+== Push 
+
+Push branch to GitHub (with all your final changes and actual code of
+{project-name}):
+
+We forcing changes to your issue branch(our sand box) is not common branch, and
+rebasing means recreation of commits so no way to push without force. NEVER
+force to common branch.
+
+----
+$ git push origin my-new-feature --force
+----
+
+
+== Pull Request
+
+Only after all testing is done – Send a Pull Request.
+
+Attention: Please recheck that in your pull request you send only your changes,
+and no other changes!!
+
+Check it by command:
+
+----
+git diff my-new-feature upstream/master
+----
+
+
