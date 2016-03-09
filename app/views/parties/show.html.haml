@@ -13,8 +13,8 @@
 %p
   %strong  Guest list
   - @party.guests.each do |guest|
-    %p
+    %p[guest]
       = guest.user.name
-      = link_to ' X ', "#" 
+      = link_to icon('remove') ,  guest, data: {:confirm => 'Are you sure?'}, :method => :delete
 
 = link_to 'Add Guest', new_party_guest_path(@party)

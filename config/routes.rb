@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :guest_invatations
   resources :parties
   resources :videos
+  resources :guests
 
   devise_for :users
   resources :users

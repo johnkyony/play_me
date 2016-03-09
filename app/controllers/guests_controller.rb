@@ -25,6 +25,14 @@ class GuestsController < ApplicationController
   def show
   end
 
+  def destroy
+    party = @guest.party
+    name = @guest.user.name
+    @guest.destroy
+    flash[:notice] = "#{name} has been removed from this party."
+    redirect_to party_path(party)
+  end
+
   private
   def guest_params
     params.require(:guest).permit( :user_id , :party_id)

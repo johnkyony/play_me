@@ -4,7 +4,9 @@ feature 'Party' do
   let(:john) { users(:john)  }
   let(:lena) { users(:lena) }
   let(:glen) { users(:glen) }
+
   let(:john_birthday) { parties(:john_birthday) }
+  let(:glen_at_john_birthday) {guests(:guest_1)}
 
   before do
     sign_in_as john
@@ -38,7 +40,7 @@ feature 'Party' do
     click_link 'Parties'
     click_link john_birthday.name
     john_birthday.guests.each do |guest|
-      assert_content guest.name
+      assert_content guest.user.name
     end
   end
 
@@ -65,7 +67,9 @@ feature 'Party' do
     assert_content glen.name
 
     # Remove Glen from the list
-    click_link "remove_guest_#{glen.id}"
+    within("#guest_#{glen_at_john_birthday.id}")  do
+      find('.fa.fa-remove').click
+    end
 
     # now Glem is not on the list of guest
     refute_content glen.name
