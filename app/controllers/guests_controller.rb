@@ -1,30 +1,40 @@
 class GuestsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_party, only: [:new, :create]
+  before_action :set_guest, only: [:show, :edit, :update, :destroy]
+
   def index
-    @guests = Guest.where(:party_id => params[:party_id])
-    
+    @guests = @party.guests
   end
+
   def new
-    
-    @guest = Guest.new
-    
-    
+    @guest = @party.guests.new
   end
-  def create   
-    @guest = Guest.create(guest_params) 
-    # @guest.user_id = params[:user_id]
-    # @guest.party_id = params[:party_id]
-    if @guest.save!
-        flash[:notice] = "The guest has been saved"
-        redirect_to :back
-      else
-        flash[:alert] = "The guest has not been saved"
-        redirect_to :back
-      end
+
+  def create
+    @guest = @party.guests.build(guest_params)
+    if @guest.save
+      flash[:notice] = "#{@guest.user.name} joined the party."
+        redirect_to party_path(@party)
+    else
+        flash[:error] = "Please retry"
+        render :new
+    end
   end
+
+  def show
+  end
+
   private
   def guest_params
     params.require(:guest).permit( :user_id , :party_id)
-    
+  end
+
+  def set_party
+    @party = Party.find(params[:party_id])
+  end
+
+  def set_guest
+    @guest = Guest.find(params[:id])
   end
 end

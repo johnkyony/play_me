@@ -1,12 +1,20 @@
-%p#notice= notice
+%h3
+  = @party.name.upcase + " PARTY"
+  = link_to 'Edit', edit_party_path
+
 %p
-  %strong Party:
-  = @party.name
- %p
-   %strong Location:
-   = @party.location
-   %strong :
-   = @party.password
+  = @party.location 
+  At:
+  = @party.occurence
+%p
+  Hosted by:
+  = @party.user.name
 
+%p
+  %strong  Guest list
+  - @party.guests.each do |guest|
+    %p
+      = guest.user.name
+      = link_to ' X ', "#" 
 
-= link_to 'Back', parties_path
+= link_to 'Add Guest', new_party_guest_path(@party)

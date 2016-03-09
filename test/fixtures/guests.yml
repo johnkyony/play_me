@@ -1,10 +1,15 @@
-# Read about fixtures at
-# http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
 cool_guy:
   user: John 
   party: halloween
 
 hot_chick:
   user: user
-  party: outdoor
+  party: john_outdoor
+
+guest_1:
+  user: glen
+  party: john_birthday
+
+guest_2:
+  user: admin
+  party: john_birthday

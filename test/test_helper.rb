@@ -25,7 +25,7 @@ class ActiveSupport::TestCase
     fill_in 'Password', with: 'topsecret'
     click_button "Sign in"
   end
-  #
+
 end
 
 #Capybara driver

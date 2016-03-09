@@ -4,15 +4,12 @@ Rails.application.routes.draw do
   resources :tracks
 
   resources :parties do
-    resources :guests   
+    resources :guests
   end
-
-
 
   resources :guest_invatations
   resources :parties
   resources :videos
-  resources :guests
 
   devise_for :users
   resources :users

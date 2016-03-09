@@ -2,6 +2,9 @@ require 'test_helper'
 
 feature 'Party' do
   let(:john) { users(:john)  }
+  let(:lena) { users(:lena) }
+  let(:glen) { users(:glen) }
+  let(:john_birthday) { parties(:john_birthday) }
 
   before do
     sign_in_as john
@@ -25,27 +28,47 @@ feature 'Party' do
   end
 
   scenario 'Current user must be able to see all the parties he has created' do
-    skip
     click_link 'Parties'
-
+    john.parties.each do |party|
+      assert_content party.name
+    end
   end
 
-  scenario 'Current user should be able to add guest to party ' do      
-    skip
+  scenario 'John  should be able to see all the guests invited to his birthday party' do 
+    click_link 'Parties'
+    click_link john_birthday.name
+    john_birthday.guests.each do |guest|
+      assert_content guest.name
+    end
+  end
+
+  scenario 'John should be able to invite Lena to his birth party ' do
     visit parties_path
+    click_link john_birthday.name
+    # Check that Lena is not yet in the guest list
+    refute_content lena.name 
+
+    # Add Lena to the list
     click_link 'Add Guest'
-    visit new_party_guest_path @halloween.id 
-    select users(:user .name, :from=> 'User')
-    select @halloween.name , :from=> 'Party' 
-    click_button 'Add friend', :match => :first   
+    select lena.name, from: 'guest_user_id'
+    click_button 'Add friend'
+
+    # now Lena is on the list of guest
+    assert_content lena.name
   end
 
-  scenario 'Current user should be able to see all the guests invited to the party' do 
-    skip
+  scenario 'John should be able to remove Glen from his birth party ' do
     visit parties_path
-    click_link 'View Guests'
-    visit party_guests_path @halloween 
-    page.must_have_content @halloween.user.name
+    click_link john_birthday.name
+
+   # Check first that  Glen is on the guest list 
+    assert_content glen.name
+
+    # Remove Glen from the list
+    click_link "remove_guest_#{glen.id}"
+
+    # now Glem is not on the list of guest
+    refute_content glen.name
   end
 
 end

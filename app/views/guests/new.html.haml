@@ -1,5 +1,3 @@
-= simple_form_for @guest do |f|
+= simple_form_for [@party,  @guest] do |f|
   = f.association :user
-  / = f.association :party 
   = f.submit 'Add friend' , class: 'btn btn-primary'
- 
