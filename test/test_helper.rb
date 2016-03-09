@@ -18,8 +18,16 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
-  #
+  def sign_in_as(user)
+    visit  '/'
+    click_link 'Sign in'
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: 'topsecret'
+    click_button "Sign in"
+  end
+
 end
 
 #Capybara driver
 Capybara.javascript_driver = :webkit
+
