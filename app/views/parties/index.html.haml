@@ -19,18 +19,13 @@
                   %th Name
                   %th Location
                   %th Occurence
-                  %th.td-actions Actions
               %tbody
                 - @parties.each do |party|
                   %tr
-                    %td= party.name
+                    %td= link_to party.name, party_path(party)
                     %td= party.location
                     %td= party.occurence
-                  %td.td-actions
-                    / = link_to "Add videos" , "#"
-                    = link_to "Add Friends" , new_party_guest_path(party)
-                    = link_to "View Guests" , party_guests_path(party)
 
     #Invitation.tab-pane.fade{:role => "tabpanel"}           
       - @invitation.each do |invitation|      
-        = link_to  invitation.party.name, party_path(invitation.party.id)
+        / = link_to  invitation.party.name, party_path(invitation.party.id)
