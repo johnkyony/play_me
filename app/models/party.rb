@@ -4,5 +4,5 @@ class Party < ActiveRecord::Base
   validates :user, presence: true
   validates :location , presence: true
   validates :occurence , presence: true
-  
+  validates :name , presence: true , uniqueness: true
 end
