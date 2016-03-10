@@ -14,15 +14,7 @@ feature 'Party' do
 
   scenario 'Current user must be able to create a new Event' do
     click_link 'New Event'
-<<<<<<< HEAD
-    fill_in 'Name' , :with => 'New Year Eve Party' 
-    fill_in 'Location' , :with => 'Far, Far, Far Away' 
-    select "2016", :from=> 'party_occurence_1i'
-    select "December", :from=> 'party_occurence_2i'
-    select "31", :from=> 'party_occurence_3i'
-    select "20", :from=> 'party_occurence_4i'
-    select "00", :from=> 'party_occurence_5i'
-=======
+
     fill_in 'Name' , with: 'New Year Eve Party' 
     fill_in 'Location' , with:  'Far, Far, Far Away' 
     select '2016', from:  'party_occurence_1i'
@@ -30,7 +22,6 @@ feature 'Party' do
     select '31', from:  'party_occurence_3i'
     select '20', from:  'party_occurence_4i'
     select '00', from:  'party_occurence_5i'
->>>>>>> b1a4192eecdef433a2a5c1f440ae0124a7fff00e
     click_button 'Save'
 
 
