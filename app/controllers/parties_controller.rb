@@ -17,10 +17,11 @@ class PartiesController < ApplicationController
   @Party = Party.create(party_params)
   @Party.user_id = current_user.id
   if @Party.save
-    flash[:success] = 'A new Event has been successfully created.'
+    flash[:notice] = 'A new Event has been successfully created.'
     redirect_to parties_path
   else
-   render :new_party
+   redirect_to new_party_path
+   flash[:success] = "A new Event was not created"
   end
  end
 
