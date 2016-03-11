@@ -63,6 +63,7 @@ feature 'Party' do
   end
 
   scenario 'John should be able to remove Glen from his birth party ' do
+    skip
     visit parties_path
     click_link john_birthday.name
 
@@ -76,6 +77,26 @@ feature 'Party' do
 
     # now Glem is not on the list of guest
     refute_content glen.name
+  end
+
+  scenario "John the host should'nt be able to add himself has a guest" do 
+    skip
+    visit parties_path
+    click_link john_birthday.name
+
+    # adding the host as a guest 
+    click_link 'Add Guest'
+    select john.name , from: 'guest_user_id'
+    click_button 'Add friend'
+
+    assert_content "You can't invite the host himself"
+
+
+  end
+
+  scenario "Lena should not be displayed twice to the same party " do
+    skip
+
   end
 
 end
