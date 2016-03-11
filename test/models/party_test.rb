@@ -7,7 +7,7 @@ describe Party do
 
   it "Party  saves with all parameters" do 
     john_birthday_party = Party.create(name: "New york after party" , location:"My house" , occurence:"12/01/2016" , user_id: users(:john).id)
-    assert john_birthday_party.valid? , 'The party #{john_birthday_party.name} was successfully saved'   
+    assert john_birthday_party.valid? , 'The party was not created'   
     assert_equal 'New york after party', john_birthday_party.name, 'Party name does not match'
   end
 
@@ -17,12 +17,9 @@ describe Party do
   end
   it "It should not save  a party with the same party name  twice " do
     duplicate_party = Party.create(name: john_birthday.name , location: john_birthday.location , occurence: john_birthday.occurence , user_id: john_birthday.user_id)
-    existing_party = Party.where(name: duplicate_party.name)
-
-    refute_match existing_party.nil? , existing_party , "The two parties are matching"
-     
+      
     
-    assert_not duplicate_party.valid?, 'The parties are matching'
+    assert_not duplicate_party.valid?, 'The party with the same name was already created'
 
   end
 end
