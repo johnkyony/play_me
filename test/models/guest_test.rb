@@ -12,17 +12,16 @@ describe Guest do
    assert_equal glen.id , guest.user_id , "The guest user id do'nt match"
   end
 
-  it "The guest should not be saved without all the parameters" do
+  it "should not be saved without all the parameters" do
     guest = Guest.create(user_id: glen.id )
     assert_not guest.valid? , 'Please retry'
   end
 
-  it "Should not save the same guest twice at a party" do 
-    skip
-    duplicate_guest = Guest.create(user_id: glen.id , party_id: john_birthday.id)
-    existing_guest = Guest.where(user_id: duplicate_guest.user_id , party_id: john_birthday.id)
-    refute_match  existing_guest.nil? ,existing_guest 
-    assert_not duplicate_guest.valid? , 'The user has been added already'
+  it "Should not be saved the same guest twice at a party" do 
+    
+    guest = Guest.create(user_id: glen.id , party_id: john_birthday.id) 
+    
+    assert guest.invalid? , 'The user has been added already'
   end
 end
 
