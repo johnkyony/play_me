@@ -20,7 +20,7 @@ describe Guest do
   it "Should not save the same guest twice at a party" do 
     duplicate_guest = Guest.create(user_id: glen.id , party_id: john_birthday.id)
     existing_guest = Guest.where(user_id: duplicate_guest.user_id , party_id: john_birthday.id)
-    assert_not_equal  existing_guest.nil? ,existing_guest 
+    refute_match  existing_guest.nil? ,existing_guest 
     assert_not duplicate_guest.valid? , 'The user has been added already'
   end
 end

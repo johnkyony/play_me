@@ -19,7 +19,7 @@ describe Party do
     duplicate_party = Party.create(name: john_birthday.name , location: john_birthday.location , occurence: john_birthday.occurence , user_id: john_birthday.user_id)
     existing_party = Party.where(name: duplicate_party.name)
 
-    assert_not_equal duplicate_party.name , existing_party.name , "The two parties are matching"
+    refute_match existing_party.nil? , existing_party , "The two parties are matching"
      
     
     assert_not duplicate_party.valid?, 'The parties are matching'
