@@ -3,17 +3,14 @@ require "test_helper"
 describe Party do
   let(:john_birthday) { parties(:john_birthday) }
 
-
   it "must not have empty attributes" do
     party = Party.new
-
 
     assert party.invalid?
     assert party.errors[:name].any?
     assert party.errors[:location].any?
     assert party.errors[:occurence].any?
   end
-
 
   it "must have a unique name" do
     party = Party.new(  name: john_birthday.name ,
