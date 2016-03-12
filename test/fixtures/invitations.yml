@@ -1,0 +1,20 @@
+# Read about fixtures at
+# http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+lena_invitation:
+  party: john_outdoor 
+  sender: john 
+  receiver: lena
+  status: pending 
+
+glen_invitation:
+  party: john_outdoor 
+  sender: john 
+  receiver: glen
+  status: pending 
+
+admin_invitation:
+  party: john_outdoor 
+  sender: john 
+  receiver: admin
+  status: pending 

@@ -1,0 +1,3 @@
+= simple_form_for [@party,  @invitation] do |f|
+  = f.association :receiver, collection: User.all 
+  = f.submit 'Invite Friend' , class: 'btn btn-primary'

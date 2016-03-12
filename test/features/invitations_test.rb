@@ -1,58 +1,46 @@
 require "test_helper"
 
-feature "InvitationTest" do
-
+feature "Invitation" do
 
   let(:john) { users(:john)  }
   let(:lena) { users(:lena) }
   let(:glen) { users(:glen) }
   let(:john_birthday) { parties(:john_birthday) }
+  let(:john_outdoor) { parties(:john_outdoor) }
+  let(:lena_invitation) { invitations (:lena_invitation) }
 
-  
-
-  scenario 'John should be able to invite Lena to his birth party' do 
-    skip
+  scenario 'John invites Lena to his birth party' do
     sign_in_as john
-    click_link 'Parties'   
+    click_link 'Parties'
     click_link john_birthday.name
-    click_link 'Send invitations'
-    select lena.name , from: 'guest_user_id'
-    click_button 'Send'
+    click_link 'Invite Friend'
+    select lena.name , from: 'invitation_receiver_id'
+    click_button 'Invite Friend'
 
-    assert_content "Invitation was successfully sent out"
-    assert_content "Pending Invitations"
-    assert_content lena.name
+    assert_content "#{lena.name} has been invited to the party"
+    within "#invitations" do 
+      assert_content lena.name
+   end
 
   end
 
-
-   scenario 'Lena should be able to accept her  invitation to john birth day party' do  
-    skip 
-    sign_in_as lena     
-    click_link 'Parties'    
+   scenario "Lena accepts an invitation to John's outdoor's party" do
+    sign_in_as lena
+    # she wants to see the invitations sent to her
     click_link 'Invitations'
-    click_link john_birthday.name 
-
-    assert_content john_birthday.name
-    assert_content john_birthday.user
-    assert_content john_birthday.location
-    assert_content john_birthday.occurence
-    john_birthday.guests.each do |guest|
-      assert_content guest.user.name
+    # She selects  John's outdoor party
+    within "#invitation_#{lena_invitation.id}" do
+      # She sees a row with the party name, and the sender of the invitation
+      assert_content john_outdoor.name
+      assert_content john.name
+      click_link 'Accept'
     end
-    pending_guest_count = john_birthday.guests.count
-
-
-    click_button 'Accept Invite'   
-
-    assert_content 'You have accepted invitation'
-
-    new_guest_count = john_birthday.guests.count
-
-    refute_match new_guest_count , pending_guest_count , 'The new guest was not added to the guest list'
-    
-
-
+    assert_content "You are now a guest at #{john_outdoor.name}"
+    # She wants to see if she is now on the guest list
+    click_link 'Parties'
+    within "#guestlist" do
+      assert_content lena.name
+    end
   end
 
   scenario 'Lena should be able to decline her invitation to john birth day party' do
@@ -114,7 +102,7 @@ feature "InvitationTest" do
     assert_content "Already going "
 
     # allowing lena now to invite glen
-    click_button 'Invite your friends'
+    click_button 'Invite Friend'
     select glen.name , from: 'guest_user_id'
     click_button 'Send invitation'
 
