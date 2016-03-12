@@ -31,42 +31,7 @@ feature "Guest" do
     page.must_have_content @guest.party.password
   end 
 
-  scenario 'If guest is invited to a party he should be able to accept the invitation' do  
-    skip   
-    click_link 'Parties'
-    click_link 'Invitation'
-    click_link 'Accept'
-    assert_content 'You have accepted invitation'
-    assert_content 'Add your friends'
-  end
-
-  scenario 'If guest is invited to a party he should be able to decline invitation' do
-    skip
-    click_link 'Parties'
-    click_link 'Invitation'
-    click_link 'decline' , :match => parties(:halloween).name
-    assert_response
-
-  end
-
-
-   scenario 'If guest is invited to a party he should be able to accept the invitation' do     
-    skip
-    click_link 'Parties'
-    click_link 'Invitation'
-    click_link 'Accept' , :match => parties(:halloween).name
-    assert_content 'You have accepted invitation'
-    assert_content 'Add your friends'
-  end
-
-  scenario "If invited to party the guest should be able to invite his friend" do   
-    click_link("Parties")    
-    click_link('Invitation')
-    visit('#Invitation')
-    click_link("Add your friends")    
-    select(users(:admin).name, :from=> 'User')
-
-  end 
+ 
 
   scenario "If invited to party the should should be able to invite his friend" do
     skip
