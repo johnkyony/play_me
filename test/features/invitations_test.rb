@@ -33,9 +33,9 @@ feature "Invitation" do
       # She sees a row with the party name, and the sender of the invitation
       assert_content john_outdoor.name
       assert_content john.name
-      click_button 'Accept'   
+      click_link 'Accept'
     end
-    assert_content 'You have accepted invitation'
+    assert_content "You are now a guest at #{john_outdoor.name}"
     # She wants to see if she is now on the guest list
     click_link 'Parties'
     within "#guestlist" do
