@@ -2,10 +2,10 @@ class InvitationsController < ApplicationController
 
   before_action :authenticate_user!
   before_action :set_party, only: [:new, :create]
-  before_action :set_invitation, only: [:show, :edit, :update, :destroy]
+  before_action :set_invitation, only: [:show, :edit, :update, :destroy, :accept, :decline]
 
   def index
-    @invitations = @party.invitations
+    @invitations = current_user.pending_invitations
   end
 
   def new
@@ -26,6 +26,22 @@ class InvitationsController < ApplicationController
   end
 
   def show
+  end
+
+  def accept
+    @invitation.accepted!
+    if @invitation.update
+      flash[:notice] = "You are now a guest at #{@invitation.party.name} party!"
+      redirect_to invitations_path
+    end
+  end
+
+  def decline
+    @invitation.declined!
+    if @invitation.update
+      flash[:notice] = "You declined the invitation to the #{@invitation.party.name} party!"
+      redirect_to invitations_path
+    end
   end
 
   def destroy
