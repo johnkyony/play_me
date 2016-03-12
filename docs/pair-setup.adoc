@@ -1,0 +1,30 @@
+= Remote Pair Programming setup
+
+
+
+
+== NGROK
+
+- Install ngrok 
+----
+brew install ngrok
+----
+
+- Sign up at https://ngrok.com
+
+-----
+ng
+----
+
+- Install the auth token
+
+----
+ngrok -authtoken key-givenAfterSignup 80
+----
+
+
+
+
+
+gem install github-auth
+

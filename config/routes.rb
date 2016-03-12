@@ -5,12 +5,14 @@ Rails.application.routes.draw do
 
   resources :parties do
     resources :guests
+    resources :invitations
   end
 
   resources :guest_invatations
   resources :parties
   resources :videos
   resources :guests
+  resources :invitations
 
   devise_for :users
   resources :users
