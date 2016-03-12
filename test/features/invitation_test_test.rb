@@ -129,14 +129,7 @@ feature "InvitationTest" do
     click_link 'Invitations'
     click_link john_birthday.name
 
-    # checking that lena can see the party details
-    assert_content john_birthday.name
-    assert_content john_birthday.user
-    assert_content john_birthday.location
-    assert_content john_birthday.occurence
-    john_birthday.guests.each do |guest|
-      assert_content guest.user.name
-    end
+    
 
     # Check that lena send the invitation
     assert_content "Invited by" + lena.name 
