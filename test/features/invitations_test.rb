@@ -8,10 +8,7 @@ feature "Invitation" do
   let(:john_birthday) { parties(:john_birthday) }
   let(:john_outdoor) { parties(:john_outdoor) }
   let(:lena_invitation) { invitations (:lena_invitation) }
-<<<<<<< HEAD
-=======
   let(:glen_invitation) { invitations (:glen_invitation) }
->>>>>>> 0469f8b347ab1267d8c96dfe5a165de76c50a8d0
 
   scenario 'John invites Lena to his birth party' do
     sign_in_as john
@@ -39,24 +36,20 @@ feature "Invitation" do
       assert_content john.name
       click_link 'Accept'
     end
-<<<<<<< HEAD
     assert_content "You are now a guest at #{john_outdoor.name}"
     # She wants to see if she is now on the guest list
     click_link 'Parties'
     within "#guestlist" do
-=======
 
     assert_content "You are now a guest at #{john_outdoor.name}"
     # She wants to see if she is now on the guest list
     click_link 'Parties'
     click_link john_outdoor.name
     within "#guests" do
->>>>>>> 0469f8b347ab1267d8c96dfe5a165de76c50a8d0
       assert_content lena.name
     end
   end
 
-<<<<<<< HEAD
   scenario 'Lena should be able to decline her invitation to john birth day party' do
     skip
     sign_in_as lena
@@ -92,7 +85,6 @@ feature "Invitation" do
 
 
     
-=======
   scenario "Glen declines an invitation to john's outdoor's party" do
     sign_in_as glen
     # He wants to see the invitations sent to her
@@ -111,18 +103,14 @@ feature "Invitation" do
       refute_content john_outdoor.name
       refute_content john.name
     end
->>>>>>> 0469f8b347ab1267d8c96dfe5a165de76c50a8d0
 
   end
 
 
-<<<<<<< HEAD
   
 
   scenario "Lena who has already accepted her invitation should be able to invite glen her friend to john's birthday party" do  
-=======
   scenario "As a guest, Lena who has already accepted her invitation should be able to invite glen her friend to john's birthday party" do  
->>>>>>> 0469f8b347ab1267d8c96dfe5a165de76c50a8d0
     skip 
     sign_in_as lena
     click_link 'Parties'

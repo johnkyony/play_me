@@ -1,15 +1,6 @@
-<<<<<<< HEAD
 #Invitation
-=======
-#invitations
->>>>>>> 0469f8b347ab1267d8c96dfe5a165de76c50a8d0
-  - @invitations.each do |invitation|
     %p[invitation]
       = invitation.party.name
       = invitation.sender.name
-<<<<<<< HEAD
-      = link_to "Accept" ,invitations_accept_path, class: "btn btn-primary"
-=======
       = link_to "Accept" , accept_invitation_path(invitation), method: :put
       = link_to "Decline" , decline_invitation_path(invitation), method: :put
->>>>>>> 0469f8b347ab1267d8c96dfe5a165de76c50a8d0
