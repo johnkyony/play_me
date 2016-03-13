@@ -1,25 +1,3 @@
-<<<<<<< HEAD
-.tab-content
-  .span7
-    .widget.stacked.widget-table.action-table
-      .widget-header
-        %i.icon-th-list
-        %h3 Party
-      / /widget-header
-      .widget-content
-        %table.table.table-striped.table-bordered
-          %thead
-            %tr
-              %th Name
-              %th Location
-              %th Occurence
-          %tbody
-            - @parties.each do |party|
-              %tr
-                %td= link_to party.name, party_path(party)
-                %td= party.location
-                %td= party.occurence
-=======
 %div
   %ul.nav.nav-tabs
     %li.active{:role => "presentation"}
@@ -47,5 +25,4 @@
                     %td= link_to party.name, party_path(party)
                     %td= party.location
                     %td= party.occurence
->>>>>>> 0469f8b347ab1267d8c96dfe5a165de76c50a8d0
 

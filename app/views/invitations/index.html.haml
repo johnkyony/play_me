@@ -1,6 +1,6 @@
 #Invitation
-    %p[invitation]
-      = invitation.party.name
-      = invitation.sender.name
-      = link_to "Accept" , accept_invitation_path(invitation), method: :put
-      = link_to "Decline" , decline_invitation_path(invitation), method: :put
+  %p[invitation]
+    = invitation.party.name
+    = invitation.sender.name
+    = link_to "Accept" , accept_invitation_path(invitation), method: :put
+    = link_to "Decline" , decline_invitation_path(invitation), method: :put

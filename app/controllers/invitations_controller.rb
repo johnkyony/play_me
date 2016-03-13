@@ -32,11 +32,13 @@ class InvitationsController < ApplicationController
     @invitation.accepted!
     if @invitation.update
       flash[:notice] = "You are now a guest at #{@invitation.party.name} party!"
+    end
     if @invitation.save
       flash[:notice] = "You are now a guest at #{@invitation.party.name} party!"
       Guest.create( party: @invitation.party, user: @invitation.receiver)
       redirect_to invitations_path
     end
+
   end
 
   def decline
@@ -44,6 +46,7 @@ class InvitationsController < ApplicationController
 
     if @invitation.update
       flash[:notice] = "You declined the invitation to the #{@invitation.party.name} party!"
+    end
 
     if @invitation.save
       flash[:notice] = "You turned down the invitation to the #{@invitation.party.name} party!"
