@@ -28,8 +28,9 @@ class InvitationsController < ApplicationController
   def show
   end
 
-  def accept
+ def accept
     @invitation.accepted!
+    if @invitation.update
       flash[:notice] = "You are now a guest at #{@invitation.party.name} party!"
     if @invitation.save
       flash[:notice] = "You are now a guest at #{@invitation.party.name} party!"
@@ -40,13 +41,17 @@ class InvitationsController < ApplicationController
 
   def decline
     @invitation.declined!
+
     if @invitation.update
       flash[:notice] = "You declined the invitation to the #{@invitation.party.name} party!"
+
     if @invitation.save
       flash[:notice] = "You turned down the invitation to the #{@invitation.party.name} party!"
+
       redirect_to invitations_path
     end
   end
+
 
   def destroy
     party = @invitation.party
