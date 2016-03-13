@@ -26,6 +26,3 @@
                     %td= party.location
                     %td= party.occurence
 
-    #Invitation.tab-pane.fade{:role => "tabpanel"}           
-      - @invitation.each do |invitation|      
-        / = link_to  invitation.party.name, party_path(invitation.party.id)

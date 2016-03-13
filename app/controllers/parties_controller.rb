@@ -3,15 +3,12 @@ class PartiesController < ApplicationController
  before_action :set_party, only: [:show, :delete, :edit, :update]
 
  def index
-   @parties = Party.where(:user_id => current_user.id)
-
-   @invitation = Guest.where(:user_id => current_user.id)
+   @parties = Party.attended_by(current_user) 
  end
 
  def new
    @party = Party.new
  end
-
 
  def create
   @Party = Party.create(party_params)

@@ -38,7 +38,8 @@ feature "Invitation" do
     assert_content "You are now a guest at #{john_outdoor.name}"
     # She wants to see if she is now on the guest list
     click_link 'Parties'
-    within "#guestlist" do
+    click_link john_outdoor.name
+    within "#guests" do
       assert_content lena.name
     end
   end
@@ -49,7 +50,7 @@ feature "Invitation" do
     click_link 'Parties'
     click_link 'Invitations'
     click_link john_birthday.name
-    
+
     # Making sure that lena can see the party details
 
     assert_content john_birthday.name

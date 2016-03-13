@@ -30,8 +30,9 @@ class InvitationsController < ApplicationController
 
   def accept
     @invitation.accepted!
-    if @invitation.update
+    if @invitation.save
       flash[:notice] = "You are now a guest at #{@invitation.party.name} party!"
+      Guest.create( party: @invitation.party, user: @invitation.receiver)
       redirect_to invitations_path
     end
   end
