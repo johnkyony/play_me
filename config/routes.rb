@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'tracks/index'
-  post 'invitations/accept'
+  post 'invitations/accept',  :to => 'invitations#accept'
 
   resources :tracks
 

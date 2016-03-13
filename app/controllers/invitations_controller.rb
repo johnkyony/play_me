@@ -2,7 +2,7 @@ class InvitationsController < ApplicationController
 
   before_action :authenticate_user!
   before_action :set_party, only: [:new, :create]
-  before_action :set_invitation, only: [:show, :edit, :update, :destroy, :accept, :decline]
+  before_action :set_invitation, only: [:show, :edit, :update, :accept,:destroy,:decline]
 
   def index
     @invitations = current_user.pending_invitations
