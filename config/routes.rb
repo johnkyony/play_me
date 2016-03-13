@@ -4,12 +4,18 @@ Rails.application.routes.draw do
 
   resources :tracks
 
+  resources :invitations do
+    member do
+      put 'accept'
+      put 'decline'
+    end
+  end
+
   resources :parties do
     resources :guests
     resources :invitations
   end
 
-  resources :guest_invatations
   resources :parties
   resources :videos
   resources :guests
