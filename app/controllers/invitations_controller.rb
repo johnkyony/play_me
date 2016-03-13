@@ -2,10 +2,7 @@ class InvitationsController < ApplicationController
 
   before_action :authenticate_user!
   before_action :set_party, only: [:new, :create]
-<<<<<<< HEAD
-=======
 
->>>>>>> rhc-Invatation_features
   before_action :set_invitation, only: [:show, :edit, :update, :destroy, :accept, :decline]
 
   def index
@@ -34,20 +31,10 @@ class InvitationsController < ApplicationController
 
  def accept
     @invitation.accepted!
-<<<<<<< HEAD
-    if @invitation.update
-      flash[:notice] = "You are now a guest at #{@invitation.party.name} party!"
-    end
-    if @invitation.save
-      flash[:notice] = "You are now a guest at #{@invitation.party.name} party!"
-      Guest.create( party: @invitation.party, user: @invitation.receiver)
-=======
-
     if @invitation.save
       flash[:notice] = "You are now a guest at #{@invitation.party.name} party!"
       Guest.create( party: @invitation.party, user: @invitation.receiver)
 
->>>>>>> rhc-Invatation_features
       redirect_to invitations_path
     end
 
@@ -56,13 +43,6 @@ class InvitationsController < ApplicationController
   def decline
     @invitation.declined!
 
-<<<<<<< HEAD
-    if @invitation.update
-      flash[:notice] = "You declined the invitation to the #{@invitation.party.name} party!"
-    end
-
-=======
->>>>>>> rhc-Invatation_features
     if @invitation.save
       flash[:notice] = "You turned down the invitation to the #{@invitation.party.name} party!"
 
