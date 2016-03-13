@@ -3,24 +3,22 @@ class PartiesController < ApplicationController
  before_action :set_party, only: [:show, :delete, :edit, :update]
 
  def index
-   @parties = Party.where(:user_id => current_user.id)
-
-   @invitation = Guest.where(:user_id => current_user.id)
+   @parties = Party.attended_by(current_user) 
  end
 
  def new
    @party = Party.new
  end
 
-
  def create
   @Party = Party.create(party_params)
   @Party.user_id = current_user.id
   if @Party.save
-    flash[:success] = 'A new Event has been successfully created.'
+    flash[:notice] = 'A new Event has been successfully created.'
     redirect_to parties_path
   else
-   render :new_party
+   redirect_to new_party_path
+   flash[:success] = "A new Event was not created"
   end
  end
 

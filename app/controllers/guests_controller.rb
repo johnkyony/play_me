@@ -14,7 +14,7 @@ class GuestsController < ApplicationController
   def create
     @guest = @party.guests.build(guest_params)
     if @guest.save
-      flash[:notice] = "#{@guest.user.name} joined the party."
+      flash[:notice] = "The guest was successfully invited"
         redirect_to party_path(@party)
     else
         flash[:error] = "Please retry"
