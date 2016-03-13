@@ -39,8 +39,8 @@ class InvitationsController < ApplicationController
 
   def decline
     @invitation.declined!
-    if @invitation.update
-      flash[:notice] = "You declined the invitation to the #{@invitation.party.name} party!"
+    if @invitation.save
+      flash[:notice] = "You turned down the invitation to the #{@invitation.party.name} party!"
       redirect_to invitations_path
     end
   end

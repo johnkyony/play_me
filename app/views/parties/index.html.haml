@@ -10,8 +10,8 @@
         .widget.stacked.widget-table.action-table
           .widget-header
             %i.icon-th-list
-            %h3 Party
-          / /widget-header
+            %h3 Parties
+            = link_to icon('+', "Add New Party") , new_party_path, class: "btn btn-primary"
           .widget-content
             %table.table.table-striped.table-bordered
               %thead

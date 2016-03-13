@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   resources :tracks
 
   resources :invitations do
-      put 'accept', on: :member
+    member do
+      put 'accept'
       put 'decline'
+    end
   end
 
   resources :parties do
