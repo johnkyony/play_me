@@ -1,10 +1,7 @@
 require "test_helper"
 
 describe Party do
-<<<<<<< HEAD
-  let(:party) { Party.new }
 
-=======
   let(:john_birthday) { parties(:john_birthday) }
 
   it "must not have empty attributes" do
@@ -25,6 +22,6 @@ describe Party do
     assert party.invalid?
     assert_equal ["has already been taken"], party.errors[:name]
   end
->>>>>>> 0469f8b347ab1267d8c96dfe5a165de76c50a8d0
+
 
 end
