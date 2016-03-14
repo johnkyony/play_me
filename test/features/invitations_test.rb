@@ -107,9 +107,6 @@ feature "Invitation" do
   end
 
 
-  
-
-  scenario "Lena who has already accepted her invitation should be able to invite glen her friend to john's birthday party" do  
   scenario "As a guest, Lena who has already accepted her invitation should be able to invite glen her friend to john's birthday party" do  
     skip 
     sign_in_as lena
