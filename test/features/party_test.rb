@@ -12,8 +12,8 @@ feature 'Party' do
     sign_in_as john
   end
 
-  scenario 'Current user must be able to create a new Event' do
-    click_link 'New Event'
+  scenario 'Current user must be able to create a new party' do
+    click_link 'New Party'
 
     fill_in 'Name' , with: 'New Year Eve Party' 
     fill_in 'Location' , with:  'Far, Far, Far Away' 
