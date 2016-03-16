@@ -1,8 +1,4 @@
-# Read about fixtures at
-# http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
 Video_1:
-  party: john_birthday
   link: "https://i.ytimg.com/vi/m8Z9fUXNVoI/default.jpg"
   uid: "m8Z9fUXNVoI"
   title: "Puff Daddy & The Family - Finna Get Loose ft. Pharrell Williams"
@@ -10,9 +6,21 @@ Video_1:
   votedown: 1
 
 Video_2:
-  party: john_birthday
   link: "https://i.ytimg.com/vi/di1ou6ok6QI/default.jpg"
   uid: "di1ou6ok6QI"
   title: "Travis Scott - Wonderful ft. The Weekend"
   voteup: 4 
   votedown: 1
+
+Video_3:
+  link: "https://i.ytimg.com/vi/DK_0jXPuIr0/default.jpg"
+  uid: "DK_0jXPuIr0"
+  title: "Justin Bieber - What Do You Mean?"
+  voteup: 4 
+  votedown: 1
+
+
+
+
+
+

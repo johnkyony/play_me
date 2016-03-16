@@ -12,15 +12,11 @@ feature "Guest" do
     sign_in_as glen
   end
  
-  
-
- 
-
-  scenario "Glen now a guest at john_birthday may see the Music playlist" do
+  scenario "As a guest, Glen sees the music playlist" do
     click_link 'Parties'
     click_link john_birthday.name
-    within "#Music_playlist" do 
-       click_link 'Music playlist'
+    within "#music_playlist" do 
+       click_link 'Music Playlist'
     end
     john_birthday.videos.each do |videos|
       assert_content videos.title
@@ -31,13 +27,13 @@ feature "Guest" do
 
   end 
 
-  scenario "Glen should be able to add a video on the music playlist" do 
+  scenario "Glen adds a video on the music playlist" do 
     click_link 'Parties'
     click_link john_birthday.name
-    within "#Music_playlist" do 
-      click_link 'Music playlist'
+    within "#music_playlist" do 
+      click_link 'Music Playlist'
     end
-    within "#videosSearch" do 
+    within "#videos_search" do 
       fill_in "search" , with: 'justin bieber what do you mean'
       click_button "Search"
     end
@@ -46,14 +42,12 @@ feature "Guest" do
       within "#video_result_#{search_results.id}" do
         assert_content "justin bieber"
         assert_content "What do you mean"
-        click_button "Add to playlist"
+        click_button "Add Video"
       end
     end
 
-    assert_content "justin bieber"
-    assert_content "what do mean"
-    
-
+    assert_content "Justin Bieber"
+    assert_content "What Do Mean"
   end
 
 
