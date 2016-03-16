@@ -38,7 +38,7 @@ feature "Guest" do
       click_link 'Music playlist'
     end
     within "#videosSearch" do 
-      fill "search" , with: 'justin bieber what do you mean'
+      fill_in "search" , with: 'justin bieber what do you mean'
       click_button "Search"
     end
 
