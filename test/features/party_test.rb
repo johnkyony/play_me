@@ -6,7 +6,7 @@ feature 'Party' do
   let(:glen) { users(:glen) }
 
   let(:john_birthday) { parties(:john_birthday) }
-  let(:glen_at_john_birthday) {guests(:guest_1)}
+  let(:glen_at_john_birthday) {guests(:guest_1)}   
 
   before do
     sign_in_as john
@@ -47,25 +47,11 @@ feature 'Party' do
     end
   end
 
-  # scenario 'John should be able to invite Lena to his birth party ' do
-    
-  #   visit parties_path
-  #   click_link john_birthday.name
-  #   # Check that Lena is not yet in the guest list
-  #   refute_content lena.name 
-
-  #   # Add Lena to the list
-  #   click_link 'Send Invitations'
-
-  #   select lena.name, from: 'guest_user_id'
-  #   click_button 'Add friend'
-
-  #   # now Lena is on the list of guest
-  #   assert_content lena.name
-  # end
+ 
 
   scenario 'John should be able to remove Glen from his birth party ' do
     skip
+    
     visit parties_path
     click_link john_birthday.name
 
@@ -77,29 +63,11 @@ feature 'Party' do
       find('.fa.fa-remove').click
     end
 
-    # now Glem is not on the list of guest
+    # now Glen is not on the list of guest
     refute_content glen.name
   end
 
-  scenario "John the host should'nt be able to add himself has a guest" do 
-    skip
-    visit parties_path
-    click_link john_birthday.name
-
-    # adding the host as a guest 
-    click_link 'Add Guest'
-    select john.name , from: 'guest_user_id'
-    click_button 'Add friend'
-
-    assert_content "You can't invite the host himself"
-
-
-  end
-
-  scenario "Lena should not be displayed twice to the same party " do
-    skip
-
-  end
+  
 
 end
 

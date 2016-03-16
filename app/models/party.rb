@@ -2,6 +2,7 @@ class Party < ActiveRecord::Base
   belongs_to :user
   has_many :guests
   has_many :invitations
+  has_many :videos
   validates :user, presence: true
   validates :location , presence: true
   validates :occurence , presence: true

@@ -1,18 +1,18 @@
 # Read about fixtures at
 # http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  party: 
-  link: MyString
-  uid: MyString
-  title: MyString
-  voteup: 1
+Video_1:
+  party: john_birthday
+  link: "https://i.ytimg.com/vi/m8Z9fUXNVoI/default.jpg"
+  uid: "m8Z9fUXNVoI"
+  title: "Puff Daddy & The Family - Finna Get Loose ft. Pharrell Williams"
+  voteup: 2
   votedown: 1
 
-two:
-  party: 
-  link: MyString
-  uid: MyString
-  title: MyString
-  voteup: 1
+Video_2:
+  party: john_birthday
+  link: "https://i.ytimg.com/vi/di1ou6ok6QI/default.jpg"
+  uid: "di1ou6ok6QI"
+  title: "Travis Scott - Wonderful ft. The Weekend"
+  voteup: 4 
   votedown: 1

@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :parties do
     resources :guests
     resources :invitations
+    resources :videos
   end
 
   resources :parties

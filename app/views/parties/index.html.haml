@@ -1,29 +1,24 @@
 
-%div
-  %ul.nav.nav-tabs
-    %li.active{:role => "presentation"}
-      %a{"aria-controls" => "own_parties" , "data-toggle" => "tab" , :href => "#own_parties" , :role => "tab"} Own Parties
-    %li{:role => "presentation"}
-      %a{"aria-controls" => "invatations" , "data-toggle" => "tab" , :href => "#Invitation" , :role => "tab"} Invitations
-  .tab-content
-    #own_parties.tab-pane.fade.in.active{:role => "tabpanel"}
-      .span7
-        .widget.stacked.widget-table.action-table
-          .widget-header
-            %i.icon-th-list
-            %h3 Parties
-            = link_to icon('+', "Add New Party") , new_party_path, class: "btn btn-primary"
-          .widget-content
-            %table.table.table-striped.table-bordered
-              %thead
-                %tr
-                  %th Name
-                  %th Location
-                  %th Occurence
-              %tbody
-                - @parties.each do |party|
-                  %tr
-                    %td= link_to party.name, party_path(party)
-                    %td= party.location
-                    %td= party.occurence
+
+
+.widget.stacked.widget-table.action-table
+  .widget-header
+    %i.icon-th-list
+    %h3 Parties
+    = link_to icon('+', "Add New Party") , new_party_path, class: "btn btn-primary"
+  .widget-content
+    %table.table.table-striped.table-bordered
+      %thead
+        %tr
+          %th Name
+          %th Location
+          %th Occurence
+      %tbody
+        - @parties.each do |party|
+          %tr
+            #Music_playlist_[party]
+            %td= link_to party.name, party_path(party)
+            %td= party.location
+            %td= party.occurence
+
 
