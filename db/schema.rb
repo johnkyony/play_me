@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160312134843) do
+ActiveRecord::Schema.define(version: 20160316152645) do
 
   create_table "guests", force: :cascade do |t|
     t.integer  "user_id"
@@ -48,6 +48,18 @@ ActiveRecord::Schema.define(version: 20160312134843) do
 
   add_index "parties", ["user_id"], name: "index_parties_on_user_id"
 
+  create_table "playlists", force: :cascade do |t|
+    t.integer  "video_id"
+    t.integer  "party_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "playlists", ["party_id"], name: "index_playlists_on_party_id"
+  add_index "playlists", ["user_id"], name: "index_playlists_on_user_id"
+  add_index "playlists", ["video_id"], name: "index_playlists_on_video_id"
+
   create_table "tracks", force: :cascade do |t|
     t.string   "name"
     t.string   "artist"
@@ -79,7 +91,6 @@ ActiveRecord::Schema.define(version: 20160312134843) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
   create_table "videos", force: :cascade do |t|
-    t.integer  "party_id"
     t.string   "link"
     t.string   "uid"
     t.string   "title"
@@ -88,7 +99,5 @@ ActiveRecord::Schema.define(version: 20160312134843) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  add_index "videos", ["party_id"], name: "index_videos_on_party_id"
 
 end
