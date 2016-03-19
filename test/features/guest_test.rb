@@ -50,6 +50,5 @@ feature "Guest" do
     assert_content "What Do Mean"
   end
 
-
 end
  
