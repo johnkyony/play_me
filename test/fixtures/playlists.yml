@@ -1,9 +1,9 @@
 # Read about fixtures at
 # http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  party: 
-  video: 
+pharrel_puff_daddy:
+  party: john_birthday
+  video: Video_1
 
 two:
   party: 

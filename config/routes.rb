@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :parties do
     resources :guests
     resources :invitations
+    resources :playlists
     resources :videos
   end
 
@@ -24,6 +25,6 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :users
-  root to: 'visitors#index'
+  root to: 'parties#index'
 end
 
