@@ -79,48 +79,7 @@ feature "Invitation" do
 
 
 
-  scenario "As a guest, Lena who has already accepted her invitation should be able to invite glen her friend to john's birthday party" do  
-
-    skip 
-    sign_in_as lena
-    click_link 'Parties'
-    click_link john_birthday.name
-    # checking that lena can see the party details
-    assert_content john_birthday.name
-    assert_content john_birthday.user
-    assert_content john_birthday.location
-    assert_content john_birthday.occurence
-    john_birthday.guests.each do |guest|
-      assert_content guest.user.name
-    end
-
-    # making sure that lena is already a guest
-    assert_content "Already going "
-
-    # allowing lena now to invite glen
-    click_button 'Invite Friend'
-    select glen.name , from: 'guest_user_id'
-    click_button 'Send invitation'
-
-    # making sure that the user can see that her invitation has been sent out 
-    assert_content 'You have successfully sent out an invitation'
-  end 
-
-  scenario "Glen should be able to see that lena invited him to attend john birthday party" do 
-    skip 
-    sign_in_as glen
-    click_link 'Parties'
-    click_link 'Invitations'
-    click_link john_birthday.name
-
-    
-
-    # Check that lena send the invitation
-    assert_content "Invited by" + lena.name 
-
-
-
-  end
+ 
 
 
 end

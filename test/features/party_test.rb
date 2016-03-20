@@ -49,23 +49,7 @@ feature 'Party' do
 
  
 
-  scenario 'John should be able to remove Glen from his birth party ' do
-    skip
-    
-    visit parties_path
-    click_link john_birthday.name
-
-   # Check first that  Glen is on the guest list 
-    assert_content glen.name
-
-    # Remove Glen from the list
-    within("#guest_#{glen_at_john_birthday.id}")  do
-      find('.fa.fa-remove').click
-    end
-
-    # now Glen is not on the list of guest
-    refute_content glen.name
-  end
+  
 
   
 

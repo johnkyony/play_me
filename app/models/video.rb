@@ -1,3 +1,4 @@
 class Video < ActiveRecord::Base
-  belongs_to :party
+  has_many :playlist
+
 end
