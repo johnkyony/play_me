@@ -1,6 +1,6 @@
 require "test_helper"
 
-feature "Guest" do
+feature "playlist" do
   let(:john) { users(:john)  }
   let(:lena) { users(:lena) }
   let(:glen) { users(:glen) }
@@ -13,11 +13,11 @@ feature "Guest" do
     sign_in_as glen
   end
  
-  scenario "As a guest, Glen sees the music playlist" do
+  scenario "Glen sees the  playlist" do
     click_link 'Parties'
     click_link john_birthday.name
-    within "#music_playlist" do 
-       click_link 'Music Playlist'
+    within "#playlist" do 
+       click_link 'Playlist'
     end
     john_birthday.playlist.each do |playlist|
       assert_content playlist.video.title
@@ -25,29 +25,24 @@ feature "Guest" do
       assert_content playlist.video.voteup
       assert_content playlist.video.votedown
     end 
-
   end 
 
-  scenario "Glen adds a video on the music playlist" do 
-    
+  scenario "Glen adds a video on the  playlist" do     
     click_link 'Parties'
     click_link john_birthday.name
-    within "#music_playlist" do 
-      click_link 'Music Playlist'
+    within "#playlist" do 
+      click_link 'Playlist'
     end
     click_link 'Add Music'
+
+    # glen shall see all the videos and be able to choose the travis scott video
     within "#videos_#{travis_scott.id}" do 
-      assert_content travis_scott.title
-      assert_content travis_scott.link
-      assert_content travis_scott.voteup
-      assert_content travis_scott.votedown
+      assert_content travis_scott.title      
       click_link "Add To Playlist"
     end
-
+    # Then glen should be able to the video that he has added on to the playlist
     assert_content travis_scott.title
-    assert_content travis_scott.link
-    assert_content travis_scott.voteup
-    assert_content travis_scott.votedown
+    
 
 
   end
