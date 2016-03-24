@@ -8,7 +8,11 @@ feature "Invitation" do
   let(:john_birthday) { parties(:john_birthday) }
   let(:john_outdoor) { parties(:john_outdoor) }
   let(:lena_invitation) { invitations (:lena_invitation) }
+
+
   let(:glen_invitation) { invitations (:glen_invitation) }
+
+
 
   scenario 'John invites Lena to his birth party' do
     sign_in_as john
@@ -36,55 +40,22 @@ feature "Invitation" do
       assert_content john.name
       click_link 'Accept'
     end
-    assert_content "You are now a guest at #{john_outdoor.name}"
-    # She wants to see if she is now on the guest list
-    click_link 'Parties'
-    within "#guestlist" do
+
+
 
     assert_content "You are now a guest at #{john_outdoor.name}"
     # She wants to see if she is now on the guest list
     click_link 'Parties'
     click_link john_outdoor.name
     within "#guests" do
+
       assert_content lena.name
     end
   end
 
-  scenario 'Lena should be able to decline her invitation to john birth day party' do
-    skip
-    sign_in_as lena
-    click_link 'Parties'
-    click_link 'Invitations'
-    click_link john_birthday.name
-    
-    # Making sure that lena can see the party details
-
-    assert_content john_birthday.name
-    assert_content john_birthday.user
-    assert_content john_birthday.location
-    assert_content john_birthday.occurence
-    john_birthday.guests.each do |guest|
-      assert_content guest.user.name
-    end
-
-    # checking the current guest count
-    current_guest_count = john_birthday.guests.count
-
-    click_button 'Decline'
-
-
-    # checking that after the decline action the count as not moved up 
-    same_guest_count = john_birthday.guests.count
-    assert_match current_guest_count , same_guest_count , 'The user is has been added to the guest list instead'
-
-
-    assert_content 'You have successfully declined your invitation to the party'
-    # making sure that lena does not see the declined party on her feed
-    refute_content john_birthday.name
 
 
 
-    
   scenario "Glen declines an invitation to john's outdoor's party" do
     sign_in_as glen
     # He wants to see the invitations sent to her
@@ -107,7 +78,9 @@ feature "Invitation" do
   end
 
 
+
   scenario "As a guest, Lena who has already accepted her invitation should be able to invite glen her friend to john's birthday party" do  
+
     skip 
     sign_in_as lena
     click_link 'Parties'
