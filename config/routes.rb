@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   post 'invitations/accept',  :to => 'invitations#accept'
 
   resources :tracks
+  resources :playlists
 
   resources :invitations do
     member do
@@ -21,7 +22,8 @@ Rails.application.routes.draw do
   resources :parties
   resources :videos
   resources :guests
-  resources :invitations
+  resources :invitations 
+
 
   devise_for :users
   resources :users

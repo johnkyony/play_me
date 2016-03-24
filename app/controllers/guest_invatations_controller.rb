@@ -1,2 +1,0 @@
-class GuestInvatationsController < ApplicationController
-end

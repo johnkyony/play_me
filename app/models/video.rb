@@ -1,4 +1,3 @@
 class Video < ActiveRecord::Base
-  has_many :playlist
-
+  has_many :playlists
 end
