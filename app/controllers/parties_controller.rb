@@ -3,7 +3,7 @@ class PartiesController < ApplicationController
  before_action :set_party, only: [:show, :delete, :edit, :update]
 
  def index
-   @parties = Party.attended_by(current_user) 
+   @parties = Party.attended_by(current_user)    
  end
 
  def new
@@ -23,6 +23,7 @@ class PartiesController < ApplicationController
  end
 
  def show
+  @playlist_videos = Playlist.where(:party_id => params[:party_id])
  end
 
  def edit

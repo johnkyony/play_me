@@ -10,7 +10,13 @@
   Hosted by:
   = @party.user.name
 #playlist
-  = link_to "Music Playlist" , party_playlists_path(@party)
+
+- @playlist_videos.each do |playlist|
+  %p[playlist]
+    = playlist.video
+   
+    = link_to "Add Music" , party_videos_path
+
 
 %p
   #guests
