@@ -1,7 +1,8 @@
-- @playlist_videos.each do |playlist|
+
+- @playlist.each do |playlist|
   %p[playlist]
     = playlist.video.title
     = playlist.video.link
     = playlist.video.voteup
     = playlist.video.votedown
-= link_to "Add Music" , party_videos_path
+  = link_to "Add Music" , party_videos_path

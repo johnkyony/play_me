@@ -11,11 +11,13 @@ feature "playlist" do
   
   before do
     sign_in_as glen
+
   end
  
   scenario "Glen sees the  playlist" do
     click_link 'Parties'
     click_link john_birthday.name
+<<<<<<< HEAD
     # within "#playlist" do 
     #    click_link 'Playlist'
     # end
@@ -26,27 +28,36 @@ feature "playlist" do
       assert_content playlist.video.votedown
     end 
   end 
-
-  scenario "Glen adds a video on the  playlist" do     
-    click_link 'Parties'
-    click_link john_birthday.name
+=======
     within "#playlist" do 
-      click_link 'Playlist'
+      john_birthday.playlists.each do |playlist|
+        assert_content playlist.video.title
+        assert_content playlist.video.link
+        assert_content playlist.video.voteup
+        assert_content playlist.video.votedown
+      end        
     end
-    click_link 'Add Music'
-
-    # glen shall see all the videos and be able to choose the travis scott video
-    within "#videos_#{travis_scott.id}" do 
-      assert_content travis_scott.title      
-      click_link "Add To Playlist"
-    end
-    # Then glen should be able to the video that he has added on to the playlist
-    assert_content travis_scott.title
     
+  end   
+ 
+ 
+>>>>>>> playlist
 
+  scenario "Glen adds a video on the  playlist" do 
+    click_link john_birthday.name    
+    within "#playlist" do 
+      # He doesn't see the video from Travis Scott
+      refute_content travis_scott.title
+      click_link "Add Video"
+    end
 
+    # Glen adds Travis Scott video to the playlist
+    select travis_scott.title, from: 'playlist_video_id'
+    click_button "Add Video"
+    # Glen is happy because he can see that the video has been added to the playlist
+    assert_content "#{travis_scott.title} has been added to the playlist."
+    assert_content travis_scott.title
   end
-
 
 end
  

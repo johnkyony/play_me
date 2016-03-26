@@ -9,18 +9,33 @@
 %p
   Hosted by:
   = @party.user.name
+
+
 #playlist
+<<<<<<< HEAD
 
 - @playlist_videos.each do |playlist|
   %p[playlist]
     = playlist.video
    
     = link_to "Add Music" , party_videos_path
+=======
+  %strong Playlist
+  = link_to "Add Video" , new_party_playlist_path(@party)
+  - @party.playlists.each do |playlist|
+    %p[playlist]
+      = playlist.video.title
+      = playlist.video.link
+      = playlist.video.voteup
+      = playlist.video.votedown
+      = link_to 'Remove', playlist, method: :delete 
+>>>>>>> playlist
 
 
 %p
   #guests
     %strong  Guest list
+    = link_to 'Add Guest', new_party_guest_path(@party)
     - @party.guests.each do |guest|
       %p[guest]
         = guest.user.name
@@ -33,13 +48,15 @@
 
 
 
+       
+
 %p
   #invitations
     %strong Invitations 
+    = link_to 'Invite Friend', new_party_invitation_path(@party)
     - @party.invitations.each do |invitation|
       %p[invitation]
         = invitation.sender.name
         = "->"
         = invitation.receiver.name
         = link_to icon('remove') ,  invitation , data: {:confirm => 'Are you sure?'}, :method => :delete
-  = link_to 'Invite Friend', new_party_invitation_path(@party)

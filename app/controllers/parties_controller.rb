@@ -10,6 +10,14 @@ class PartiesController < ApplicationController
    @party = Party.new
  end
 
+ # vir 
+ # var
+ # cir
+ # car
+ # dir
+ # dar
+ # yir
+ # yar
  def create
   @Party = Party.create(party_params)
   @Party.user_id = current_user.id

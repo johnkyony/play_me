@@ -50,11 +50,12 @@ group :development do
   end
 end
 
+gem 'ffaker'
+gem 'faker'
 gem 'minitest-rails'
 group :test do
   gem 'minitest-reporters'
   gem 'minitest-rails-capybara'
-  gem 'faker'
 end
 
 group :production do
