@@ -12,14 +12,6 @@
 
 
 #playlist
-<<<<<<< HEAD
-
-- @playlist_videos.each do |playlist|
-  %p[playlist]
-    = playlist.video
-   
-    = link_to "Add Music" , party_videos_path
-=======
   %strong Playlist
   = link_to "Add Video" , new_party_playlist_path(@party)
   - @party.playlists.each do |playlist|
@@ -29,7 +21,7 @@
       = playlist.video.voteup
       = playlist.video.votedown
       = link_to 'Remove', playlist, method: :delete 
->>>>>>> playlist
+
 
 
 %p

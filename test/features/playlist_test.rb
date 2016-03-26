@@ -17,18 +17,7 @@ feature "playlist" do
   scenario "Glen sees the  playlist" do
     click_link 'Parties'
     click_link john_birthday.name
-<<<<<<< HEAD
-    # within "#playlist" do 
-    #    click_link 'Playlist'
-    # end
-    john_birthday.playlist.each do |playlist|
-      assert_content playlist.video.title
-      assert_content playlist.video.link
-      assert_content playlist.video.voteup
-      assert_content playlist.video.votedown
-    end 
-  end 
-=======
+
     within "#playlist" do 
       john_birthday.playlists.each do |playlist|
         assert_content playlist.video.title
@@ -40,8 +29,7 @@ feature "playlist" do
     
   end   
  
- 
->>>>>>> playlist
+
 
   scenario "Glen adds a video on the  playlist" do 
     click_link john_birthday.name    
