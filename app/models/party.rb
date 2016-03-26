@@ -3,7 +3,7 @@ class Party < ActiveRecord::Base
   has_many :guests
   has_many :invitations
 
-  has_many :playlist
+  has_many :playlists
 
   validates :user, presence: true
   validates :location , presence: true

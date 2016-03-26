@@ -11,7 +11,7 @@
   = @party.user.name
 
 
-#playlists
+#playlist
   %strong Playlist
   = link_to "Add Video" , new_party_playlist_path(@party)
   - @party.playlists.each do |playlist|
@@ -38,9 +38,8 @@
     
 
 
-=======
-        = link_to icon('remove') ,  guest, data: {confirm: 'Are you sure?'}, method:  :delete
->>>>>>> bde09ff4f44161595c7c24b3aa761b40e8458ec6
+
+       
 
 %p
   #invitations

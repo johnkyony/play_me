@@ -1,5 +1,5 @@
 class PlaylistsController < ApplicationController
-
+ 
   before_action :authenticate_user!
   before_action :set_party, only: [:new, :create]
   before_action :set_playlist, only: [:show, :edit, :update, :destroy]
@@ -48,4 +48,3 @@ class PlaylistsController < ApplicationController
   end
 end
 
->>>>>>> bde09ff4f44161595c7c24b3aa761b40e8458ec6
