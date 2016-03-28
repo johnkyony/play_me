@@ -1,0 +1,26 @@
+= ROADMAP
+John Kyony <jkyony@gmail.com>
+version 0.1 , 28 Mar 2016
+
+== Completed features
+
+- John invites Lena to his birth party
+- Lena accepts an invitation to John's outdoor's party
+- Glen declines an invitation to john's outdoor's party
+- Glen sees the  playlist
+- Glen adds a video on the  playlist
+- Current user must be able to create a new party
+- Current user must be able to see all the parties he has created
+- John  should be able to see all the guests invited to his birthday party
+
+== Planned features for Minimal viable product
+
+- Adding youtube api
+- How to render youtube video on playlist
+- Voting for a video 
+- Ranking of hosts 
+- Can't add video to playlist after event 
+
+== Version 2 features 
+- Ranking of parties 
+- Listening to a users music choice 
