@@ -21,6 +21,7 @@ version 0.1 , 28 Mar 2016
 - Ranking of hosts 
 - Can't add video to playlist after event 
 
+
 == Version 2 features 
 - Ranking of parties 
 - Listening to a users music choice 
