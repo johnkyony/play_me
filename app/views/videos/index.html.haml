@@ -2,8 +2,9 @@
   .container
     %h1 Latest videos
     #player-wrapper
-    - @videos.each do |video|
-      .row        
+    .row   
+      - @videos.each do |video|
+          
         .col-md-4
           %p[video]
           .yt_video.thumbnail
