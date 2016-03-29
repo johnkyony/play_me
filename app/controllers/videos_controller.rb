@@ -1,7 +1,11 @@
-class VideosController < ApplicationController
+class VideosController < ApplicationController  
 
   def index
-    @videos = Video.all
-        
+    client = Yt::Collections::Videos.new
+    @videos = client.where(q: params[:query])
   end
+    
 end
+
+  
+

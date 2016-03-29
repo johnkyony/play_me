@@ -27,6 +27,10 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :users
+
+  get 'videos/index'
+  post 'videos/index'
+  
   root to: 'parties#index'
 end
 

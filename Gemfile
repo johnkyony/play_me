@@ -19,6 +19,7 @@ group :development do
   gem 'spring'
 end
 
+gem 'yt', '~> 0.25.5'
 gem 'thin'
 gem 'slim-rails'
 gem 'haml-rails'

@@ -1,9 +1,16 @@
+- if @videos.any?
+  .container
+    %h1 Latest videos
+    #player-wrapper
+    - @videos.each do |video|
+      .row        
+        .col-md-4
+          %p[video]
+          .yt_video.thumbnail
+            = image_tag(video.thumbnail_url(size = :high), alt: video.title , class: 'img-rounded')                                                                       
+                                        
+            .caption
+              %h5= video.title
+              = link_to "Add To Playlist" , "#" ,class: "btn btn-primary"
 
-- @videos.each do |videos|
-  %p[videos]
-    = videos.title
-    = videos.link
-    = videos.voteup
-    = videos.votedown
-    = link_to "Add To Playlist" , "#" ,class: "btn btn-primary"
-
+              
