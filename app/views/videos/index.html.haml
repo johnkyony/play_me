@@ -1,9 +1,44 @@
+- if @videos.any?
+  .container
+    %h1 Latest videos
+    #player-wrapper
+    - @videos.each do |video|
 
-- @videos.each do |videos|
-  %p[videos]
-    = videos.title
-    = videos.link
-    = videos.voteup
-    = videos.votedown
-    = link_to "Add To Playlist" , "#" ,class: "btn btn-primary"
+      .row
+        
+        .col-md-4
+          %p[video]
+
+          .yt_video.thumbnail
+
+            = link_to image_tag(video.thumbnail_url(size = :high), alt: video.title , class: 'img-rounded')     
+                                                                              
+                                        
+            .caption
+              %h5= video.title
+              = link_to "Add To Playlist" , "#" ,class: "btn btn-primary"
+
+              / %p
+              / /   Published at #{video.published_at.strftime('%-d %B %Y %H:%M:%S')}
+              / %p
+              /   %span.glyphicon.glyphicon.glyphicon-thumbs-up
+              /   = video.likes
+              /   %span.glyphicon.glyphicon.glyphicon-thumbs-down
+              /   = video.dislikes
+
+/ - if @videos
+/   %h2 Founded results:
+/   -@videos.each do |v|
+/     %div
+/       %div= v.title
+/       %iframe{:allowscriptaccess => "always", :allowFullScreen => "true", |
+/       :frameborder => "0", :height => "430", :src => "//www.youtube.com/embed/#{v.id}", |
+/       :title => "YouTube video player", :width => "640"}
+/ / - @videos.each do |videos|
+/ /   %p[videos]
+/ /     = videos.title
+/ /     = videos.link
+/ /     = videos.voteup
+/ /     = videos.votedown
+/ /     = link_to "Add To Playlist" , "#" ,class: "btn btn-primary"
 
