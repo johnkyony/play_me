@@ -2,16 +2,16 @@
   .container
     %h1 Latest videos
     #player-wrapper
-    .row   
-      - @videos.each do |video|
-          
-        .col-md-4
-          %p[video]
-          .yt_video.thumbnail
-            = image_tag(video.thumbnail_url(size = :high), alt: video.title , class: 'img-rounded')                                                                       
-                                        
-            .caption
-              %h5= video.title
-              = link_to "Add To Playlist" , "#" ,class: "btn btn-primary"
+    .col-md-12
+      .row   
+        - @videos.each do |video|          
+          .col-md-4
+            %p[video]
+            .yt_video.thumbnail
+              = image_tag(video.thumbnail_url(size = :high), alt: video.title , class: 'img-rounded')                                                                       
+                                          
+              .caption
+                %h5= video.title
+                = link_to "Add To Playlist" , "#" ,class: "btn btn-primary"
 
               
