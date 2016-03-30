@@ -21,12 +21,6 @@ feature "Videos" do
       click_button "Search"
     end
 
-    assert_content "Drake"
-
-
-
-
-
-    
+    assert_content "Drake"   
   end
 end

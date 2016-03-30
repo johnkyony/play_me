@@ -1,54 +1,118 @@
-%h3
-  = @party.name.upcase + " PARTY"
-  = link_to 'Edit', edit_party_path
+/ %h3
+/   = @party.name.upcase + " PARTY"
+/   = link_to 'Edit', edit_party_path
 
-%p
-  = @party.location 
-  At:
-  = @party.occurence
-%p
-  Hosted by:
-  = @party.user.name
-
-
-#playlist
-  %strong Playlist
-  = link_to "Add Video" , new_party_playlist_path(@party)
-  - @party.playlists.each do |playlist|
-    %p[playlist]
-      = playlist.video.title
-      = playlist.video.link
-      = playlist.video.voteup
-      = playlist.video.votedown
-      = link_to 'Remove', playlist, method: :delete 
+/ %p
+/   = @party.location 
+/   At:
+/   = @party.occurence
+/ %p
+/   Hosted by:
+/   = @party.user.name
 
 
+/ #playlist
+/   %strong Playlist
+/   = link_to "Add Video" , new_party_playlist_path(@party)
+/   - @party.playlists.each do |playlist|
+/     %p[playlist]
+/       = playlist.video.title
+/       = playlist.video.link
+/       = playlist.video.voteup
+/       = playlist.video.votedown
+/       = link_to 'Remove', playlist, method: :delete 
 
-%p
-  #guests
-    %strong  Guest list
-    = link_to 'Add Guest', new_party_guest_path(@party)
-    - @party.guests.each do |guest|
-      %p[guest]
-        = guest.user.name
 
-        = link_to icon('remove') ,  guest, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+/ %p
+/   #guests
+/     %strong  Guest list
+/     = link_to 'Add Guest', new_party_guest_path(@party)
+/     - @party.guests.each do |guest|
+/       %p[guest]
+/         = guest.user.name
+
+/         = link_to icon('remove') ,  guest, data: {:confirm => 'Are you sure?'}, :method => :delete
       
 
-    = link_to 'Add Guest', new_party_guest_path(@party)
+/     = link_to 'Add Guest', new_party_guest_path(@party)
     
 
 
 
        
 
-%p
-  #invitations
-    %strong Invitations 
-    = link_to 'Invite Friend', new_party_invitation_path(@party)
-    - @party.invitations.each do |invitation|
-      %p[invitation]
-        = invitation.sender.name
-        = "->"
-        = invitation.receiver.name
-        = link_to icon('remove') ,  invitation , data: {:confirm => 'Are you sure?'}, :method => :delete
+/ %p
+/   #invitations
+/     %strong Invitations 
+/     = link_to 'Invite Friend', new_party_invitation_path(@party)
+/     - @party.invitations.each do |invitation|
+/       %p[invitation]
+/         = invitation.sender.name
+/         = "->"
+/         = invitation.receiver.name
+/         = link_to icon('remove') ,  invitation , data: {:confirm => 'Are you sure?'}, :method => :delete
+
+.container
+  .row
+    .col-md-10
+      %div
+        / Nav tabs
+        %ul.nav.nav-tabs{:role => "tablist"}
+          %li.active{:role => "presentation"}
+            %a{"aria-controls" => "home", "data-toggle" => "tab", :href => "#home", :role => "tab"}  "#{@party.name.upcase} 
+          %li{:role => "presentation"}
+            %a{"aria-controls" => "profile", "data-toggle" => "tab", :href => "#profile", :role => "tab"} Guests
+          %li{:role => "presentation"}
+            %a{"aria-controls" => "messages", "data-toggle" => "tab", :href => "#messages", :role => "tab"} Invitations
+          %li{:role => "presentation"}
+            %a{"aria-controls" => "settings", "data-toggle" => "tab", :href => "#settings", :role => "tab"} Playlist
+        / Tab panes
+        .tab-content
+          #home.tab-pane.fade.in.active{:role => "tabpanel"}
+            %h3
+              = @party.name.upcase + " PARTY"
+              = link_to 'Edit', edit_party_path
+
+            %p
+              = @party.location 
+              At:
+              = @party.occurence
+            %p
+              Hosted by:
+              = @party.user.name
+          #profile.tab-pane.fade{:role => "tabpanel"} 
+            %p
+              #guests
+                %strong  Guest list
+                = link_to 'Add Guest', new_party_guest_path(@party)
+                - @party.guests.each do |guest|
+                  %p[guest]
+                    = guest.user.name
+
+                    = link_to icon('remove') ,  guest, data: {:confirm => 'Are you sure?'}, :method => :delete
+                  
+
+               
+          #messages.tab-pane.fade{:role => "tabpanel"} 
+            %p
+              #invitations
+                %strong Invitations 
+                = link_to 'Invite Friend', new_party_invitation_path(@party)
+                - @party.invitations.each do |invitation|
+                  %p[invitation]
+                    = invitation.sender.name
+                    = "->"
+                    = invitation.receiver.name
+                    = link_to icon('remove') ,  invitation , data: {:confirm => 'Are you sure?'}, :method => :delete
+          #settings.tab-pane.fade{:role => "tabpanel"} 
+            #playlist
+              %strong Playlist
+              = link_to "Add Video" , new_party_playlist_path(@party)
+              - @party.playlists.each do |playlist|
+                %p[playlist]
+                  = playlist.video.title
+                  = playlist.video.link
+                  = playlist.video.voteup
+                  = playlist.video.votedown
+                  = link_to 'Remove', playlist, method: :delete 
