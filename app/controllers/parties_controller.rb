@@ -10,14 +10,7 @@ class PartiesController < ApplicationController
    @party = Party.new
  end
 
- # vir 
- # var
- # cir
- # car
- # dir
- # dar
- # yir
- # yar
+ 
  def create
   @Party = Party.create(party_params)
   @Party.user_id = current_user.id
@@ -32,12 +25,22 @@ class PartiesController < ApplicationController
 
  def show
   @playlist_videos = Playlist.where(:party_id => params[:party_id])
+
  end
 
  def edit
  end
 
  def update
+  @party.update(party_params)
+  if @party.save
+    flash[:notice] = "The party was successfully updated"
+    redirect_to party_path(params[:id])
+  else
+    render 'edit'
+    flash[:notice] = "Something that went wrong please try again"
+  end
+
  end
 
  private

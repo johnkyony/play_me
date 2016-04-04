@@ -47,7 +47,27 @@ feature 'Party' do
     end
   end
 
- 
+  scenario 'john the host should be able to edit the party details' do
+    click_link 'Parties'
+    click_link john_birthday.name
+    click_link 'Edit'
+
+    fill_in 'Name' , with: 'New Year Eve Party' 
+    fill_in 'Location' , with:  'Far, Far, Far Away' 
+    select '2016', from:  'party_occurence_1i'
+    select 'December', from:  'party_occurence_2i'
+    select '31', from:  'party_occurence_3i'
+    select '20', from:  'party_occurence_4i'
+    select '00', from:  'party_occurence_5i'
+    click_button 'Save'
+
+    assert_content "The party was successfully updated"
+
+  end 
+
+  
+
+
 
   
 
