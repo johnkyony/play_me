@@ -39,11 +39,11 @@ class PartiesController < ApplicationController
     redirect_to party_path(params[:id])
   else
     render 'edit'
-    flash[:notice] = "Something that went wrong please try again"
+    flash[:success] = "Something that went wrong please try again"
   end
     
   else
-     flash[:notice] = "Sorry you're not the host of the party"
+     flash[:success] = "Sorry you're not the host of the party"
      redirect_to party_path(params[:id])
 
   end
