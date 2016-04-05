@@ -19,8 +19,8 @@
           #home.tab-pane.fade.in.active{:role => "tabpanel"}
             %h3
               = @party.name.upcase + " PARTY"
-              - if @host
-                = link_to 'Edit', edit_party_path
+              
+              = link_to 'Edit', edit_party_path
 
             %p
               = @party.location 

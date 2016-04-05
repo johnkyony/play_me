@@ -32,7 +32,8 @@ class PartiesController < ApplicationController
  end
 
  def update
-  @party.update(party_params)
+  if @party.user_id == current_user.id
+    @party.update(party_params)
   if @party.save
     flash[:notice] = "The party was successfully updated"
     redirect_to party_path(params[:id])
@@ -40,6 +41,13 @@ class PartiesController < ApplicationController
     render 'edit'
     flash[:notice] = "Something that went wrong please try again"
   end
+    
+  else
+     flash[:notice] = "Sorry you're not the host of the party"
+     redirect_to party_path(params[:id])
+
+  end
+  
 
  end
 
