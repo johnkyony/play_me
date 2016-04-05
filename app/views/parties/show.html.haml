@@ -7,16 +7,16 @@
         / Nav tabs
         %ul.nav.nav-tabs{:role => "tablist"}
           %li.active{:role => "presentation"}
-            %a{"aria-controls" => "home", "data-toggle" => "tab", :href => "#home", :role => "tab"}  "#{@party.name.upcase} 
+            %a{"aria-controls" => "party", "data-toggle" => "tab", :href => "#party", :role => "tab"}  "#{@party.name.upcase} 
           %li{:role => "presentation"}
-            %a{"aria-controls" => "profile", "data-toggle" => "tab", :href => "#profile", :role => "tab"} Guests
+            %a{"aria-controls" => "guest", "data-toggle" => "tab", :href => "#guest", :role => "tab"} Guests
           %li{:role => "presentation"}
-            %a{"aria-controls" => "messages", "data-toggle" => "tab", :href => "#messages", :role => "tab"} Invitations
+            %a{"aria-controls" => "invitations", "data-toggle" => "tab", :href => "#invitation", :role => "tab"} Invitations
           %li{:role => "presentation"}
-            %a{"aria-controls" => "settings", "data-toggle" => "tab", :href => "#settings", :role => "tab"} Playlist
+            %a{"aria-controls" => "playlist", "data-toggle" => "tab", :href => "#playlists", :role => "tab"} Playlist
         / Tab panes
         .tab-content
-          #home.tab-pane.fade.in.active{:role => "tabpanel"}
+          #party.tab-pane.fade.in.active{:role => "tabpanel"}
             %h3
               = @party.name.upcase + " PARTY"
               
@@ -29,7 +29,7 @@
             %p
               Hosted by:
               = @party.user.name
-          #profile.tab-pane.fade{:role => "tabpanel"} 
+          #guest.tab-pane.fade{:role => "tabpanel"} 
             %p
               #guests
                 %strong  Guest list
@@ -42,7 +42,7 @@
                   
 
                
-          #messages.tab-pane.fade{:role => "tabpanel"} 
+          #invitation.tab-pane.fade{:role => "tabpanel"} 
             %p
               #invitations
                 %strong Invitations 
@@ -53,7 +53,7 @@
                     = "->"
                     = invitation.receiver.name
                     = link_to icon('remove') ,  invitation , data: {:confirm => 'Are you sure?'}, :method => :delete
-          #settings.tab-pane.fade{:role => "tabpanel"} 
+          #playlists.tab-pane.fade{:role => "tabpanel"} 
             #playlist
               %strong Playlist
               = link_to "Add Video" , new_party_playlist_path(@party)

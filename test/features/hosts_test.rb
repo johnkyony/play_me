@@ -28,5 +28,19 @@ feature "Hosts" do
     # An error message shows that glen can't change details since he is not the host of the party
     assert_content "Sorry you're not the host of the party "
   end
+
+  scenario "Glen can't add a guest since he is not the host " do
+    click_link 'Parties'
+    click_link john_birthday.name  
+    click_link 'Add Guest'  
+    
+    select 'John', from:  'guest_user_id'
+    click_button "Add friend"
+    
+    assert_content "Your not allowed to add a guest since your not a host"
+
+
+  end
+
 end
  
