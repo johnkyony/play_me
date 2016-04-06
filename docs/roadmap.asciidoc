@@ -14,8 +14,8 @@ version 0.1 , 28 Mar 2016
 - John  should be able to see all the guests invited to his birthday party
 - Glen can't add a guest since he is not the host
 - john the host should be able to edit the party details
-- Lena should be able to search for video using the  youtube api
-- Adding youtube api
+- Lena should be able to search for music sing the  soundcloud api
+- Adding soundcloud api
 
 
 == Planned features for Minimal viable product

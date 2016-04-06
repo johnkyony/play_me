@@ -1,16 +1,30 @@
-%form{:action => "?", :method => "get"}
-  %input{:autofocus => "", :name => "search", :placeholder => "Search songs here", :type => "text"}/
 
-- @tracks.each do |track|
-  %p= track.title
-  = image_tag("#{track.artwork_url}")
-  %p= track.stream_url
- 
 
- 
-  
 
-  
- 
+.container
+  .row
+    %ul.thumbnails
+      - @tracks.each do |track|
+        .col-md-4
+          .thumbnail
+            %img.img-responsive{:alt => "ALT NAME", :src => "#{track.artwork_url}"}/
+            .caption
+            
+              %h3= track.title
+              
+              %p{:align => "center"}
+                %a.btn.btn-primary.btn-block{:href => "#"}Add To Playlist
 
-  
+  / .col-md-4
+  /   .thumbnail
+     
+  /     = image_tag("#{track.artwork_url}")
+
+  /     .caption
+  /       %h5
+  /       = link_to "Add To Playlist" , "#" ,class: "btn btn-primary"
+
+      
+     
+
+

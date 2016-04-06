@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     resources :invitations
     resources :playlists
     resources :videos
+    resources :tracks
   end
 
   resources :parties
@@ -30,6 +31,7 @@ Rails.application.routes.draw do
 
   get 'videos/index'
   post 'videos/index'
+  post 'tracks/index'
   
   root to: 'parties#index'
 end
