@@ -13,7 +13,8 @@
               %h3= track.title
               
               %p{:align => "center"}
-                %a.btn.btn-primary.btn-block{:href => "#"}Add To Playlist
+                = link_to "Add To Playlist" , party_playlists_path(@party , track)  , class: "btn btn-primary btn-block"
+                / %a.btn.btn-primary.btn-block{:href => "#"}Add To Playlist
 
   / .col-md-4
   /   .thumbnail

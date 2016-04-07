@@ -6,7 +6,7 @@ class TracksController < ApplicationController
     if params[:query]
       @tracks = client.get('/tracks', :q => params[:query] , :limit => 200 )
     else
-      @tracks = client.get('/tracks', :q => 'traviscott' , :limit => 100 )
+      @tracks = client.get('/tracks', :limit => 100, :order => 'hotness')
     end
   end
 end
