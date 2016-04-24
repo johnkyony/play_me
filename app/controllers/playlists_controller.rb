@@ -10,20 +10,20 @@ class PlaylistsController < ApplicationController
 
   def new
     @playlist = @party.playlists.new
-    client = Soundcloud.new(:client_id => '6d4b8e66ddd26d1f7df54714074db7aa')    
-    @tracks = client.get('/tracks', :limit => 100, :order => 'hotness')
+    # client = Soundcloud.new(:client_id => '6d4b8e66ddd26d1f7df54714074db7aa')    
+    # @tracks = client.get('/tracks', :limit => 100, :order => 'hotness')
   end
 
   def create
-    client = Soundcloud.new(:client_id => '6d4b8e66ddd26d1f7df54714074db7aa')
-    if params[:query]
-      @tracks = client.get('/tracks', :q => params[:query] , :limit => 200 )
-    else
-      @tracks = client.get('/tracks', :limit => 100, :order => 'hotness')
-    end
+    # client = Soundcloud.new(:client_id => '6d4b8e66ddd26d1f7df54714074db7aa')
+    # if params[:query]
+    #   @tracks = client.get('/tracks', :q => params[:query] , :limit => 200 )
+    # else
+    #   @tracks = client.get('/tracks', :limit => 100, :order => 'hotness')
+    # end
     @playlist = @party.playlists.build(playlist_params)
     if @playlist.save
-      flash[:notice] = "#{@playlist.video.title} has been added to the playlist."
+      flash[:notice] = "#{@playlist.track.name} has been added to the playlist."
         redirect_to party_path(@party)
     else
         flash[:error] = "Please retry"
@@ -36,7 +36,7 @@ class PlaylistsController < ApplicationController
 
   def destroy
     party = @playlist.party
-    name = @playlist.video.name
+    name = @playlist.track.name
     @playlist.destroy
     flash[:notice] = "#{name} has been removed from this playlist."
     redirect_to party_path(party)

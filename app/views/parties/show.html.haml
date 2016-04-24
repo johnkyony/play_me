@@ -56,11 +56,10 @@
           #playlists.tab-pane.fade{:role => "tabpanel"} 
             #playlist
               %strong Playlist
-              = link_to "Add Video" , new_party_playlist_path(@party)
+              = link_to "Add Music" , new_party_playlist_path(@party)
               - @party.playlists.each do |playlist|
                 %p[playlist]
-                  = playlist.video.title
-                  = playlist.video.link
-                  = playlist.video.voteup
-                  = playlist.video.votedown
+                  = playlist.track.name
+                  = playlist.track.artwork_url
+                  
                   = link_to 'Remove', playlist, method: :delete 

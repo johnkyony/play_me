@@ -6,7 +6,7 @@ namespace :db do
   task populate: :environment do
     puts '.....'
     admin = User.find_by(email: 'admin@gmail.com') || User.create( name: 'admin', email: 'admin@gmail.com', password: 'topsecret', role: 1)
-
+    john = User.find_by(email: 'jkyony@gmail.com') || User.create(name: 'john' , email: 'jkyony@gmail.com' , password: '(0) (0)' , role: 1)
     # Users
     20.times do 
       p full_name = Faker::Name.name
@@ -35,6 +35,17 @@ namespace :db do
                  voteup: i,
                  votedown: i/3
                 )
+  end
+
+  # Tracks 
+  30.times do |i|
+    Track.create(
+      name: FFaker::Music.song , 
+      artwork_url: "http://track#{i}.jpg",
+      length: 300 ,
+      soundcloud_id: i*i,
+      stream_url: "http://track#{i}/stream"
+      )
   end
 
     # Guests and playlists

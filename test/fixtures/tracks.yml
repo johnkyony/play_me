@@ -1,16 +1,23 @@
 # Read about fixtures at
 # http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  name: MyString
-  artist: MyString
-  length: 1
-  soundcloud_id: 1
-  stream_url: MyString
 
-two:
-  name: MyString
-  artist: MyString
+Track_1:
+  name: "Travis $cott Uber Everywhere Remix CDQ"
+  artwork_url: "https://i1.sndcdn.com/artworks-000073475639-a4t680-large.jpg"
   length: 1
   soundcloud_id: 1
-  stream_url: MyString
+  stream_url: "https://api.soundcloud.com/tracks/247267952/stream"
+
+Track_2:
+  name: "The Way - Ariana Grande ft. Mac Miller"
+  length: 1
+  soundcloud_id: 85017824
+  stream_url: "https://api.soundcloud.com/tracks/85017824/stream"
+
+Track_3:
+  name: "Future + The Weeknd- Low Life"
+  length: 1
+  soundcloud_id: 239485245
+  stream_url: "https://api.soundcloud.com/tracks/239485245/stream"
+

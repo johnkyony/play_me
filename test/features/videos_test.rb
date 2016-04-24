@@ -10,17 +10,17 @@ feature "Videos" do
     sign_in_as glen
   end
 
-  scenario "Lena should be able to search for video on youtube" do
-   click_link 'Parties'
-   click_link john_birthday.name
-    within "#playlist" do      
-      click_link "Add Video"
-    end
-    within "#search" do
-      fill_in "query" , with: "Drake"
-      click_button "Search"
-    end
+  # scenario "Lena should be able to search for music on api" do
+  #  click_link 'Parties'
+  #  click_link john_birthday.name
+  #   within "#playlist" do      
+  #     click_link "Add Music"
+  #   end
+  #   within "#search" do
+  #     fill_in "query" , with: "Drake"
+  #     click_button "Search"
+  #   end
 
-    assert_content "Drake"   
-  end
+  #   assert_content "Drake"   
+  # end
 end

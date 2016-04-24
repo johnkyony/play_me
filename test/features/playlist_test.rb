@@ -6,8 +6,7 @@ feature "playlist" do
   let(:glen) { users(:glen) }
   let(:john_birthday) { parties(:john_birthday) }
   let(:glen_at_john_birthday) {guests(:guest_1)}
-  let(:video) {videos(:Video_1)}
-  let(:travis_scott) {videos(:Video_2)}
+  let(:travis_scott) {tracks(:Track_1)}
   
   before do
     sign_in_as glen
@@ -20,10 +19,9 @@ feature "playlist" do
 
     within "#playlist" do 
       john_birthday.playlists.each do |playlist|
-        assert_content playlist.video.title
-        assert_content playlist.video.link
-        assert_content playlist.video.voteup
-        assert_content playlist.video.votedown
+        assert_content playlist.track.name
+        assert_content playlist.track.artwork_url
+        
       end        
     end
     
@@ -31,20 +29,20 @@ feature "playlist" do
  
 
 
-  scenario "Glen adds a video on the  playlist" do 
+  scenario "Glen adds a track on the  playlist" do 
     click_link john_birthday.name    
     within "#playlist" do 
-      # He doesn't see the video from Travis Scott
-      refute_content travis_scott.title
-      click_link "Add Video"
+      # He doesn't see the track from Travis Scott
+      refute_content travis_scott.name
+      click_link "Add Music"
     end
 
-    # Glen adds Travis Scott video to the playlist
-    select travis_scott.title, from: 'playlist_video_id'
-    click_button "Add Video"
-    # Glen is happy because he can see that the video has been added to the playlist
-    assert_content "#{travis_scott.title} has been added to the playlist."
-    assert_content travis_scott.title
+    # Glen adds Travis Scott track to the playlist
+    select travis_scott.name, from: 'playlist_track_id'
+    click_button "Add Music"
+    # Glen is happy because he can see that the track has been added to the playlist
+    assert_content "#{travis_scott.name} has been added to the playlist."
+    assert_content travis_scott.name
   end
 
 end

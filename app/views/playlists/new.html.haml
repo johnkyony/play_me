@@ -19,6 +19,6 @@
   .row
     .col-md-4
       = simple_form_for [@party,  @playlist] do |f|
-        = f.association :video
-        = f.submit 'Add Video' , class: 'btn btn-primary'
+        = f.association :track
+        = f.submit 'Add Music' , class: 'btn btn-primary'
 

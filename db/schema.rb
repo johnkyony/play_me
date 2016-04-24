@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160406115810) do
+ActiveRecord::Schema.define(version: 20160411191508) do
 
   create_table "guests", force: :cascade do |t|
     t.integer  "user_id"
@@ -70,6 +70,8 @@ ActiveRecord::Schema.define(version: 20160406115810) do
     t.string   "stream_url"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.string   "title"
+    t.string   "artwork_url"
   end
 
   create_table "users", force: :cascade do |t|

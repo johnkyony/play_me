@@ -64,13 +64,6 @@ feature 'Party' do
     assert_content "The party was successfully updated"
 
   end 
-
-  
-
-
-
-  
-
   
 
 end
