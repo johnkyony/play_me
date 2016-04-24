@@ -57,8 +57,8 @@ namespace :db do
       end
 
       # add 3 videos to the playlist
-      Video.all.sample(3).each do |video|  
-        party.playlists.build(video: video).save
+      Track.all.sample(3).each do |track|  
+        party.playlists.build(track: track).save
       end
     end
   end
