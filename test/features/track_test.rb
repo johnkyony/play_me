@@ -12,17 +12,6 @@ feature "Track" do
   before do
     sign_in_as glen
   end  
-  # scenario "Glen can add a track to the playlist" do
-  #   click_link john_birthday.name    
-  #   within "#playlist" do 
-  #     # He doesn't see the video from Travis Scott
-  #     refute_content travis_scott.title
-  #     click_link "Add Music"
-  #   end
-
-    
-
   
-  # end
  
 end
