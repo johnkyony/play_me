@@ -1,0 +1,13 @@
+.container
+  .row
+    %ul.thumbnails
+      - @tracks.each do |track|
+        .col-md-4
+          .thumbnail
+            %img.img-responsive{:alt => "ALT NAME", :src => "#{track.artwork_url}"}/
+            .caption
+            
+              %h3= track.name
+              
+              %p{:align => "center"}
+                = link_to "Add To Playlist" ,"#"  , class: "btn btn-primary btn-block"

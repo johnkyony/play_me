@@ -1,31 +1,7 @@
 
 
-
-.container
-  .row
-    %ul.thumbnails
-      - @tracks.each do |track|
-        .col-md-4
-          .thumbnail
-            %img.img-responsive{:alt => "ALT NAME", :src => "#{track.artwork_url}"}/
-            .caption
-            
-              %h3= track.title
-              
-              %p{:align => "center"}
-                = link_to "Add To Playlist" , party_playlists_path(@party , track)  , class: "btn btn-primary btn-block"
-                / %a.btn.btn-primary.btn-block{:href => "#"}Add To Playlist
-
-  / .col-md-4
-  /   .thumbnail
-     
-  /     = image_tag("#{track.artwork_url}")
-
-  /     .caption
-  /       %h5
-  /       = link_to "Add To Playlist" , "#" ,class: "btn btn-primary"
-
-      
-     
-
-
+- if @tracks.present?
+  = render @tracks
+- else
+  %p
+    There are no Tracks containing the term(s) #{params[:search]}.
