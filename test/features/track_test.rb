@@ -19,8 +19,8 @@ feature "Track" do
     within "#playlist" do      
       click_link "Add Music"
     end
-    within "#search" do
-      fill_in "query" , with: ariana_grande.name
+    within "#search-form" do
+      fill_in "search" , with: ariana_grande.name
       click_button "Search"
     end
 
