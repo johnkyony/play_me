@@ -5,7 +5,7 @@
   .container 
     .row
       .col-md-5 
-        = form_tag party_playlists_path, :method => :post do
+        = form_tag tracks_path, :method => :post do
           %div
             = label_tag "search for:"
             = text_field_tag "query"

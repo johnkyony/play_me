@@ -6,12 +6,27 @@ feature "Track" do
   let(:glen) { users(:glen) }
   let(:john_birthday) { parties(:john_birthday) }
   let(:glen_at_john_birthday) {guests(:guest_1)}
-  let(:track) {tracks(:Track_1)}
-  let(:travis_scott) {tracks(:Track_2)}
+  let(:ariana_grande) {tracks(:Track_2)}
+  let(:travis_scott) {tracks(:Track_1)}
   
   before do
     sign_in_as glen
-  end  
+  end 
+
+  scenario "Lena should be able to search for music on api" do
+   click_link 'Parties'
+   click_link john_birthday.name
+    within "#playlist" do      
+      click_link "Add Music"
+    end
+    within "#search" do
+      fill_in "query" , with: ariana_grande.name
+      click_button "Search"
+    end
+
+    assert_content ariana_grande.name 
+  end
+
   
  
 end
