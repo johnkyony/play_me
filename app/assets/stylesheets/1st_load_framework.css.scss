@@ -2,6 +2,25 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+
+//navbar css 
+h1.page-header {
+    margin-top: -5px;
+}
+
+.sidebar {
+    padding-left: 0;
+}
+
+
+
+.footer {
+    width: 100%;
+}  
+
+// party event css 
+
+
 // make all images responsive by default
 img {
   @extend .img-responsive;
